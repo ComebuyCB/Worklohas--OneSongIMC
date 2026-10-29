@@ -1,0 +1,53 @@
+<header class="header">
+    <nav class="navbar navbar-expand-lg header_navbar" aria-label="主選單" TODO-i18n-attr="aria-label:header.nav.label">
+        <div class="container-lg header_container">
+            <a class="header_logo" href="/templates/index.html">
+                <img src="/static/common/img/logo/logo.svg" alt="ONESONG 灣聲國際音樂大賽" width="195" height="46">
+            </a>
+
+            <div id="headerMenu" class="collapse navbar-collapse header_menu">
+                <ul class="header_nav">
+                    <li class="header_nav-item">
+                        <a class="header_nav-link" href="/templates/about.html"><span TODO-i18n="header.nav.about">關於大賽</span><i class="maskIcon maskIcon_chevronDown header_nav-arrow" aria-hidden="true"></i></a>
+                        <ul class="header_sub">
+                            <li><a class="header_sub-link" href="/templates/about.html" TODO-i18n="header.nav.about.about">關於大賽</a></li>
+                            <li><a class="header_sub-link" href="/templates/about.html#organizer" TODO-i18n="header.nav.about.organizer">主辦單位</a></li>
+                        </ul>
+                    </li>
+                    <li class="header_nav-item">
+                        <a class="header_nav-link" href="#"><span TODO-i18n="header.nav.competition">應屆賽事</span><i class="maskIcon maskIcon_chevronDown header_nav-arrow" aria-hidden="true"></i></a>
+                        <ul class="header_sub">
+                            <li><a class="header_sub-link" href="/templates/competition/rules.html" TODO-i18n="header.nav.competition.rules">賽制章程</a></li>
+                            <li><a class="header_sub-link" href="/templates/competition/jury.html" TODO-i18n="header.nav.competition.jury">評審名單</a></li>
+                            <li><a class="header_sub-link" href="/templates/competition/repertoire.html" TODO-i18n="header.nav.competition.repertoire">賽事曲庫</a></li>
+                            <li><a class="header_sub-link" href="/templates/competition/updates.html" TODO-i18n="header.nav.competition.updates">賽況查詢</a></li>
+                        </ul>
+                    </li>
+                    <li class="header_nav-item">
+                        <a class="header_nav-link" href="#"><span TODO-i18n="header.nav.apply">線上參加</span><i class="maskIcon maskIcon_chevronDown header_nav-arrow" aria-hidden="true"></i></a>
+                        <ul class="header_sub">
+                            <li><a class="header_sub-link" href="/templates/apply/signup.html" TODO-i18n="header.nav.apply.signup">線上報名</a></li>
+                            <li><a class="header_sub-link" href="/templates/apply/downloads.html" TODO-i18n="header.nav.apply.downloads">文件下載</a></li>
+                        </ul>
+                    </li>
+                    <li class="header_nav-item">
+                        <a class="header_nav-link" href="/templates/support.html" TODO-i18n="header.nav.support">合作與支持</a>
+                    </li>
+                </ul>
+
+                <!-- 語系切換：href 帶 ?lang=，日後後端可沿用同一網址參數 -->
+                <div class="header_lang">
+                    <a class="header_lang-link js-lang-switch" href="?lang=en" data-lang="en" lang="en">EN</a>
+                    <span aria-hidden="true">/</span>
+                    <a class="header_lang-link is_active js-lang-switch" href="?lang=zh-Hant" data-lang="zh-Hant" lang="zh-Hant" aria-current="true">中</a>
+                </div>
+            </div>
+
+            <a class="btn btn_primary header_signup" href="/templates/apply/signup.html" TODO-i18n="header.signup">線上報名</a>
+
+            <button class="navbar-toggler header_toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerMenu" aria-controls="headerMenu" aria-expanded="false" aria-label="開啟選單" TODO-i18n-attr="aria-label:header.toggler">
+                <i class="maskIcon maskIcon_hamburger" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
+</header>

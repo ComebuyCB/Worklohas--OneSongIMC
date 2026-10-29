@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>if (screen.width < 400){ document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=400') }</script>
+
+    <link rel="icon" type="image/svg+xml" href="/static/common/img/logo/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/common/img/logo/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/common/img/logo/apple-touch-icon.png">
+
+    <title>灣聲國際音樂大賽 OneSong International Music Competition</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/static/core/jquery-3.6.4/jquery.min.js"></script>
+    <link href="/static/core/bootstrap-5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/core/bootstrap-5.3.8/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <link href="/static/plugins/fontawesome-free-7.3.1-web/css/all.min.css" rel="stylesheet">
+    <link href="/static/plugins/swiper-12.2.0/swiper-bundle.min.css" rel="stylesheet">
+    <script src="/static/plugins/swiper-12.2.0/swiper-bundle.min.js"></script>
+
+    <!-- main -->
+    <link href="/static/common/css/main.css" rel="stylesheet">
+    <script src="/static/common/js/main.js"></script>
+</head>
+<body id="index">
+    <div id="wrap">
+        <header TODO-replace="/templates/_layout/header.html"></header>
+
+        <main>
+            <!-- 主視覺輪播 -->
+            <section class="index_banner" aria-label="主視覺" TODO-i18n-attr="aria-label:index.banner.label">
+                <div class="swiper index_banner-swiper js-index-banner">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/static/common/img/banner-index01.jpg">
+                                <img class="index_banner-img" src="/static/common/img/banner-index01_m.jpg" alt="2027 第三屆灣聲國際音樂大賽－指揮大賽" width="786" height="1268">
+                            </picture>
+                        </div>
+                        <div class="swiper-slide">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/static/common/img/banner-index01.jpg">
+                                <img class="index_banner-img" src="/static/common/img/banner-index01_m.jpg" alt="2027 第三屆灣聲國際音樂大賽－指揮大賽" width="786" height="1268">
+                            </picture>
+                        </div>
+                        <div class="swiper-slide">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/static/common/img/banner-index01.jpg">
+                                <img class="index_banner-img" src="/static/common/img/banner-index01_m.jpg" alt="2027 第三屆灣聲國際音樂大賽－指揮大賽" width="786" height="1268">
+                            </picture>
+                        </div>
+                        <div class="swiper-slide">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/static/common/img/banner-index01.jpg">
+                                <img class="index_banner-img" src="/static/common/img/banner-index01_m.jpg" alt="2027 第三屆灣聲國際音樂大賽－指揮大賽" width="786" height="1268">
+                            </picture>
+                        </div>
+                        <div class="swiper-slide">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/static/common/img/banner-index01.jpg">
+                                <img class="index_banner-img" src="/static/common/img/banner-index01_m.jpg" alt="2027 第三屆灣聲國際音樂大賽－指揮大賽" width="786" height="1268">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination js-index-banner-dots"></div>
+
+                    <button class="index_banner-ctrl index_banner-ctrl_prev js-index-banner-prev" type="button" aria-label="上一張" TODO-i18n-attr="aria-label:index.banner.prev">
+                        <i class="maskIcon maskIcon_chevron maskIcon_chevron_prev" aria-hidden="true"></i>
+                    </button>
+                    <button class="index_banner-ctrl index_banner-ctrl_next js-index-banner-next" type="button" aria-label="下一張" TODO-i18n-attr="aria-label:index.banner.next">
+                        <i class="maskIcon maskIcon_chevron" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 關於大賽 -->
+            <section class="index_about">
+                <div class="container-lg">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h2 class="sectionTitle" TODO-i18n="index.about.title">關於大賽</h2>
+                        </div>
+                        <div class="col-md-7">
+                            <p class="fs_h2 index_about-lead" TODO-i18n-html="index.about.lead">全球唯一以「臺灣音樂文化與臺灣作曲家作品」<br>為核心內容的頂尖國際音樂賽事</p>
+                            <p class="index_about-desc" TODO-i18n="index.about.desc">灣聲國際音樂大賽，秉持「古典音樂臺灣化，臺灣音樂古典化」的願景，廣邀全球新一代音樂家，將源自這片土地的文化脈動，轉化為世界古典樂壇的當代經典。</p>
+                            <div class="text-end">
+                                <a class="btn btn_outline_body_primary btn_arrow" href="#"><span TODO-i18n="index.about.more">瞭解更多</span><i class="maskIcon maskIcon_arrowLong" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 最新消息 -->
+            <section class="index_news">
+                <div class="container-lg">
+                    <h2 class="sectionTitle" TODO-i18n="index.news.title">最新消息</h2>
+                    <div class="container_1030 index_news-body">
+                        <ul class="newsList row list-unstyled">
+                            <li class="col-md-6 col-lg-4">
+                                <a class="newsCard" href="/templates/competition/updates-details.html">
+                                    <img class="newsCard-img" src="/static/common/img/index/news01.jpg" alt="" width="1000" height="706">
+                                    <h3 class="newsCard-title">【報名起跑】2027 灣聲國際音樂大賽——指揮大賽正式開放全球報名第三行第三行第三行第三行第三行第三行</h3>
+                                </a>
+                            </li>
+                            <li class="col-md-6 col-lg-4">
+                                <a class="newsCard" href="/templates/competition/updates-details.html">
+                                    <img class="newsCard-img" src="/static/common/img/index/news01.jpg" alt="" width="1000" height="706">
+                                    <h3 class="newsCard-title">【報名起跑】2027 灣聲國際音樂大賽——指揮大賽正式開放全球報名第三行第三行第三行第三行第三行第三行</h3>
+                                </a>
+                            </li>
+                            <li class="col-md-6 col-lg-4">
+                                <a class="newsCard" href="/templates/competition/updates-details.html">
+                                    <img class="newsCard-img" src="/static/common/img/index/news01.jpg" alt="" width="1000" height="706">
+                                    <h3 class="newsCard-title">【報名起跑】2027 灣聲國際音樂大賽——指揮大賽正式開放全球報名第三行第三行第三行第三行第三行第三行</h3>
+                                </a>
+                            </li>
+                            <li class="col-md-6 col-lg-4">
+                                <a class="newsCard" href="/templates/competition/updates-details.html">
+                                    <img class="newsCard-img" src="/static/common/img/index/news01.jpg" alt="" width="1000" height="706">
+                                    <h3 class="newsCard-title">【報名起跑】2027 灣聲國際音樂大賽——指揮大賽正式開放全球報名第三行第三行第三行第三行第三行第三行</h3>
+                                </a>
+                            </li>
+                            <li class="col-md-6 col-lg-4">
+                                <a class="newsCard" href="/templates/competition/updates-details.html">
+                                    <img class="newsCard-img" src="/static/common/img/index/news01.jpg" alt="" width="1000" height="706">
+                                    <h3 class="newsCard-title">【報名起跑】2027 灣聲國際音樂大賽——指揮大賽正式開放全球報名第三行第三行第三行第三行第三行第三行</h3>
+                                </a>
+                            </li>
+                            <li class="col-md-6 col-lg-4">
+                                <a class="newsCard" href="/templates/competition/updates-details.html">
+                                    <img class="newsCard-img" src="/static/common/img/index/news01.jpg" alt="" width="1000" height="706">
+                                    <h3 class="newsCard-title">【報名起跑】2027 灣聲國際音樂大賽——指揮大賽正式開放全球報名第三行第三行第三行第三行第三行第三行</h3>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="text-end">
+                            <a class="alink_primary text-decoration-underline index_news-more" href="#" TODO-i18n="index.news.more">more</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 大賽獎項 -->
+            <section class="index_award">
+                <div class="container-lg">
+                    <h2 class="sectionTitle" TODO-i18n="index.award.title">大賽獎項</h2>
+                    <div class="container_1030 index_award-body">
+                        <div class="row align-items-end index_award-list">
+                            <div class="col col-sm-4">
+                                <div class="index_awardCard index_awardCard_second">
+                                    <i class="maskIcon maskIcon_conduct" aria-hidden="true"></i>
+                                    <h3 class="index_awardCard-title" TODO-i18n="index.award.second">貳獎</h3>
+                                    <p class="index_awardCard-prize"><span class="_num">20,000</span> <span class="_unit" TODO-i18n="index.award.unit">美金</span></p>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4 index_award-center">
+                                <div class="index_awardCard index_awardCard_first">
+                                    <i class="maskIcon maskIcon_conduct" aria-hidden="true"></i>
+                                    <h3 class="index_awardCard-title" TODO-i18n="index.award.first">首獎</h3>
+                                    <p class="index_awardCard-prize"><span class="_num">30,000</span> <span class="_unit" TODO-i18n="index.award.unit">美金</span></p>
+                                    <p class="index_awardCard-note" TODO-i18n-html="index.award.first.note">客席指揮<br class="d-md-none">邀演</p>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4">
+                                <div class="index_awardCard index_awardCard_third">
+                                    <i class="maskIcon maskIcon_conduct" aria-hidden="true"></i>
+                                    <h3 class="index_awardCard-title" TODO-i18n="index.award.third">參獎</h3>
+                                    <p class="index_awardCard-prize"><span class="_num">10,000</span> <span class="_unit" TODO-i18n="index.award.unit">美金</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="index_award-divider">
+
+                        <div class="row align-items-end index_award-list">
+                            <div class="col-4">
+                                <div class="index_awardCard index_awardCard_special">
+                                    <h3 class="index_awardCard-title" TODO-i18n="index.award.audience">最佳人氣獎</h3>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="index_awardCard index_awardCard_laurel">
+                                    <h3 class="index_awardCard-title" TODO-i18n="index.award.laurel">桂冠獎</h3>
+                                    <p class="index_awardCard-prize"><span class="_num">3,000</span> <span class="_unit" TODO-i18n="index.award.unit">美金</span></p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="index_awardCard index_awardCard_special">
+                                    <h3 class="index_awardCard-title" TODO-i18n="index.award.orchestra">樂團票選獎</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 報名資訊入口 -->
+            <section class="index_entry">
+                <div class="container-lg">
+                    <h2 class="visually-hidden" TODO-i18n="index.entry.title">報名資訊</h2>
+                    <ul class="index_entry-list list-unstyled">
+                        <li>
+                            <a class="index_entryCard" href="#">
+                                <h3 class="index_entryCard-title" TODO-i18n-html="index.entry.signup">報名參加</h3>
+                                <i class="maskIcon maskIcon_signup index_entryCard-icon" aria-hidden="true"></i>
+                                <i class="maskIcon maskIcon_marker index_entryCard-arrow" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="index_entryCard" href="#">
+                                <h3 class="index_entryCard-title" TODO-i18n-html="index.entry.repertoire">賽事曲庫</h3>
+                                <i class="maskIcon maskIcon_music index_entryCard-icon" aria-hidden="true"></i>
+                                <i class="maskIcon maskIcon_marker index_entryCard-arrow" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="index_entryCard" href="/templates/competition/jury.html">
+                                <h3 class="index_entryCard-title" TODO-i18n-html="index.entry.jury">評審名單</h3>
+                                <i class="maskIcon maskIcon_jury index_entryCard-icon" aria-hidden="true"></i>
+                                <i class="maskIcon maskIcon_marker index_entryCard-arrow" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="index_entry-info">
+                        <p class="index_entry-text" TODO-i18n-html="index.entry.text">報名資格、費用與流程<br>請詳閱賽制章程</p>
+                        <div class="index_entry-action">
+                            <a class="btn btn_outline_body_primaryDark btn_arrow" href="/templates/competition/rules.html"><span TODO-i18n="index.entry.rules">賽制章程</span><i class="maskIcon maskIcon_arrowLong" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div TODO-replace="/templates/_layout/modal.html"></div>
+
+        <footer TODO-replace="/templates/_layout/footer.html"></footer>
+    </div>
+
+    <script>
+        // 首頁主視覺輪播
+        $(function(){
+            new Swiper('.js-index-banner', {
+                loop: true,
+                autoplay: { delay: 5000, disableOnInteraction: false },
+                pagination: { el: '.js-index-banner-dots', clickable: true },
+                navigation: { prevEl: '.js-index-banner-prev', nextEl: '.js-index-banner-next' },
+            })
+        })
+    </script>
+</body>
+</html>

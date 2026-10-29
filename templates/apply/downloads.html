@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>if (screen.width < 400){ document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=400') }</script>
+
+    <link rel="icon" type="image/svg+xml" href="/static/common/img/logo/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/common/img/logo/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/common/img/logo/apple-touch-icon.png">
+
+    <title>文件下載｜灣聲國際音樂大賽 OneSong International Music Competition</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:wght@100..900&family=Noto+Serif+TC:wght@200..900&family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- core -->
+    <script src="/static/core/jquery-3.6.4/jquery.min.js"></script>
+    <link href="/static/core/bootstrap-5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/static/core/bootstrap-5.3.8/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <link href="/static/plugins/fontawesome-free-7.3.1-web/css/all.min.css" rel="stylesheet">
+
+    <!-- main -->
+    <link href="/static/common/css/main.css" rel="stylesheet">
+    <script src="/static/common/js/main.js"></script>
+</head>
+<body id="downloads">
+    <div id="wrap">
+        <header TODO-replace="/templates/_layout/header.html"></header>
+
+
+        <main>
+            <!-- 頁面標題＋主圖 -->
+            <section class="pageBanner">
+                <div class="container-lg pageBanner-body">
+                    <div class="pageBanner-head">
+                        <h1 class="pageTitle">文件下載</h1>
+                        <i class="maskIcon maskIcon_decoChevron" aria-hidden="true"></i>
+                    </div>
+                    <picture class="pageBanner-img">
+                        <source media="(min-width: 576px)" srcset="/static/common/img/banner-downloads.jpg">
+                        <img src="/static/common/img/banner-downloads.jpg" alt="灣聲樂團於音樂廳舞台演出">
+                    </picture>
+                </div>
+            </section>
+
+            <!-- 文件列表 -->
+            <div class="container-lg pageBody">
+                <section class="infoSection">
+                    <div class="infoSection--head">
+                        <i class="maskIcon maskIcon_decoChevron" aria-hidden="true"></i>
+                    </div>
+                    <div class="infoSection--body">
+                        <ul class="fileList">
+                            <li><a class="alink_hover fileList-link" href="#" download><span class="fileList-name">2027灣聲國際音樂大賽 指揮大賽-報名簡章 中文_20260929-1法顧修訂版.pdf</span><i class="maskIcon maskIcon_download" aria-hidden="true"></i></a></li>
+                            <li><a class="alink_hover fileList-link" href="#" download><span class="fileList-name">2027灣聲國際音樂大賽 法定代理人同意書(附件一)_20260929法顧修訂版.pdf</span><i class="maskIcon maskIcon_download" aria-hidden="true"></i></a></li>
+                            <li><a class="alink_hover fileList-link" href="#" download><span class="fileList-name">2027灣聲國際音樂大賽_利益關係聲明表(附件二)_20260908(定稿).pdf</span><i class="maskIcon maskIcon_download" aria-hidden="true"></i></a></li>
+                            <li><a class="alink_hover fileList-link" href="#" download><span class="fileList-name">2027灣聲國際音樂大賽_個人資料蒐集處理及利用同意書(附件三)_20260929法顧修訂final版.pdf</span><i class="maskIcon maskIcon_download" aria-hidden="true"></i></a></li>
+                            <li><a class="alink_hover fileList-link" href="#" download><span class="fileList-name">2027灣聲國際音樂大賽 參賽者影音及肖像授權同意書(附件四)_20260929法顧修訂版.pdf</span><i class="maskIcon maskIcon_download" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <div TODO-replace="/templates/_layout/modal.html"></div>
+
+        <footer TODO-replace="/templates/_layout/footer.html"></footer>
+    </div>
+</body>
+</html>

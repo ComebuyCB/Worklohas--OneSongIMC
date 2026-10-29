@@ -1,0 +1,8 @@
+# Playwright 測試截圖與紀錄
+.playwright-mcp/
+
+# OS / 編輯器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

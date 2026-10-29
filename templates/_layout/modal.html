@@ -1,0 +1,15 @@
+<div id="modal">
+    <!-- 確認視窗：由 main.js 的 _confirm() 帶入標題、內容與按鈕 -->
+    <div class="modal fade confirmModal" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content confirmModal-content">
+                <h2 class="modal-title confirmModal-title" id="confirmModalTitle"></h2>
+                <div class="modal-body confirmModal-body js-confirm-content"></div>
+                <div class="confirmModal-footer">
+                    <button class="btn btn_gray confirmModal-btn js-confirm-cancel" type="button" data-bs-dismiss="modal"></button>
+                    <button class="btn btn_primary confirmModal-btn js-confirm-ok" type="button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
