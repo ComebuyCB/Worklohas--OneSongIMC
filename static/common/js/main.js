@@ -51,5 +51,12 @@ function _confirm(options){
 }
 
 
+
+// 圖片點擊放大：頁面有載入 PhotoSwipe 時，綁定 .js-zoom 連結（href 為大圖，需帶 data-pswp-width / data-pswp-height）
+$(function(){
+	if (!window.PhotoSwipeLightbox) return
+	new PhotoSwipeLightbox({ gallery: '.js-zoom', pswpModule: PhotoSwipe }).init()
+})
+
 // TODO 靜態展示用：載入 demo.js（_layout 片段、中英切換）。交接後連同 demo.js 一起刪除
 document.head.appendChild(Object.assign(document.createElement('script'), { src: '/static/common/js/demo.js' }))

@@ -28,7 +28,7 @@
     <link href="/static/common/css/main.css" rel="stylesheet">
     <script src="/static/common/js/main.js"></script>
 </head>
-<body id="signupForm">
+<body id="applicationForm">
     <div id="wrap">
         <header TODO-replace="/templates/_layout/header.html"></header>
 
@@ -44,22 +44,22 @@
             </section>
 
             <div class="container-lg pageBody">
-                <form class="container_820 paperBox" id="applicationForm" action="#" method="post">
+                <form class="container_820 paperBox" id="registerForm" action="#" method="post">
                     <!-- 基本資料 -->
-                    <section class="signupForm_section">
-                        <h2 class="signupForm_heading">Basic Information 基本資料</h2>
-                        <div class="row signupForm_basic">
+                    <section class="applicationForm_section">
+                        <h2 class="applicationForm_heading">Basic Information 基本資料</h2>
+                        <div class="row applicationForm_basic">
                             <div>
                                 <label class="form-label" for="nameZh">Full Chinese Name 中文姓名 (無者免填 / Optional)</label>
-                                <input class="form-control" id="nameZh" name="nameZh" type="text" placeholder="王小明">
+                                <input class="form-control" id="nameZh" name="nameZh" type="text">
                             </div>
                             <div class="col-sm-6">
                                 <label class="form-label" for="lastName">Last Name / Surname 姓氏</label>
-                                <input class="form-control" id="lastName" name="lastName" type="text" placeholder="王">
+                                <input class="form-control" id="lastName" name="lastName" type="text">
                             </div>
                             <div class="col-sm-6">
                                 <label class="form-label" for="firstName">First Name / Given Name 名字</label>
-                                <input class="form-control" id="firstName" name="firstName" type="text" placeholder="小明">
+                                <input class="form-control" id="firstName" name="firstName" type="text">
                             </div>
                             <div>
                                 <label class="form-label" for="title">Title (Mr. / Ms. / Mx. / Dr.) 稱謂 (先生/小姐)</label>
@@ -73,88 +73,88 @@
                             </div>
                             <div class="col-sm-7">
                                 <label class="form-label" for="birthday">Date of Birth 出生日期 (YYYY/MM/DD)</label>
-                                <input class="form-control" id="birthday" name="birthday" type="text" inputmode="numeric" placeholder="YYYY/MM/DD">
+                                <input class="form-control" id="birthday" name="birthday" type="text" inputmode="numeric">
                             </div>
                             <div class="col-sm-5">
                                 <label class="form-label" for="nationality">Nationality 國籍</label>
-                                <input class="form-control" id="nationality" name="nationality" type="text" placeholder="台灣">
+                                <input class="form-control" id="nationality" name="nationality" type="text">
                             </div>
                             <div>
                                 <label class="form-label" for="phone">Phone Number 聯絡電話 (國碼＋號碼)</label>
-                                <input class="form-control" id="phone" name="phone" type="tel" placeholder="+886 912345678">
+                                <input class="form-control" id="phone" name="phone" type="tel">
                             </div>
                             <div>
                                 <label class="form-label" for="email">Email Address 電子郵件</label>
-                                <input class="form-control" id="email" name="email" type="email" placeholder="123@gmail.com">
-                                <div class="signupForm_verify">
-                                    <button class="btn signupForm_btn" type="button">發送驗證碼</button>
-                                    <div class="signupForm_verify-code">
+                                <input class="form-control" id="email" name="email" type="email">
+                                <div class="applicationForm_verify">
+                                    <button class="btn applicationForm_btn" type="button">發送驗證碼</button>
+                                    <div class="applicationForm_verify-code">
                                         <label class="form-label" for="emailCode">驗證碼</label>
-                                        <input class="form-control" id="emailCode" name="emailCode" type="text" inputmode="numeric" placeholder="123456">
+                                        <input class="form-control" id="emailCode" name="emailCode" type="text" inputmode="numeric">
                                     </div>
                                 </div>
                                 <!-- 驗證成功後顯示 -->
-                                <p class="signupForm_verified mb-0">email 驗證成功<i class="fa-solid fa-check" aria-hidden="true"></i></p>
+                                <p class="applicationForm_verified mb-0">email 驗證成功<i class="fa-solid fa-check" aria-hidden="true"></i></p>
                             </div>
                             <div>
                                 <label class="form-label" for="address">Mailing Address 通訊地址</label>
-                                <input class="form-control" id="address" name="address" type="text" placeholder="台北市">
+                                <input class="form-control" id="address" name="address" type="text">
                             </div>
                         </div>
                     </section>
 
                     <!-- 學經歷資料 -->
-                    <section class="signupForm_section">
-                        <h2 class="signupForm_heading">Education &amp; Musical Experience 學經歷資料</h2>
+                    <section class="applicationForm_section">
+                        <h2 class="applicationForm_heading">Education &amp; Musical Experience 學經歷資料</h2>
                         <div>
                             <label class="form-label" for="education">Educational Background 學歷 (YYYY/MM - YYYY/MM)</label>
-                            <div class="signupForm_period">
-                                <input class="form-control" id="education" name="education" type="text" placeholder="ＯＯＯ大學">
-                                <div class="signupForm_period-dates">
-                                    <select class="form-select js-select-month" name="educationStartMonth" aria-label="學歷起始月份"></select>
+                            <div class="applicationForm_period">
+                                <input class="form-control" id="education" name="education" type="text">
+                                <div class="applicationForm_period-dates">
                                     <select class="form-select js-select-year" name="educationStartYear" aria-label="學歷起始年份"></select>
+                                    <select class="form-select js-select-month" name="educationStartMonth" aria-label="學歷起始月份"></select>
                                     <span aria-hidden="true">~</span>
-                                    <select class="form-select js-select-month" name="educationEndMonth" aria-label="學歷結束月份"></select>
                                     <select class="form-select js-select-year" name="educationEndYear" aria-label="學歷結束年份"></select>
+                                    <select class="form-select js-select-month" name="educationEndMonth" aria-label="學歷結束月份"></select>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <label class="form-label" for="mentor">Conducting Mentor 師承 (YYYY/MM - YYYY/MM)</label>
-                            <div class="signupForm_period">
-                                <input class="form-control" id="mentor" name="mentor" type="text" placeholder="ＯＯＯ老師">
-                                <div class="signupForm_period-dates">
-                                    <select class="form-select js-select-month" name="mentorStartMonth" aria-label="師承起始月份"></select>
+                            <div class="applicationForm_period">
+                                <input class="form-control" id="mentor" name="mentor" type="text">
+                                <div class="applicationForm_period-dates">
                                     <select class="form-select js-select-year" name="mentorStartYear" aria-label="師承起始年份"></select>
+                                    <select class="form-select js-select-month" name="mentorStartMonth" aria-label="師承起始月份"></select>
                                     <span aria-hidden="true">~</span>
-                                    <select class="form-select js-select-month" name="mentorEndMonth" aria-label="師承結束月份"></select>
                                     <select class="form-select js-select-year" name="mentorEndYear" aria-label="師承結束年份"></select>
+                                    <select class="form-select js-select-month" name="mentorEndMonth" aria-label="師承結束月份"></select>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <label class="form-label" for="experience">Conducting Experience 個人指揮經歷 (YYYY/MM - YYYY/MM)（非必填）</label>
-                            <div class="signupForm_period">
-                                <input class="form-control" id="experience" name="experience" type="text" placeholder="ＯＯＯＯ">
-                                <div class="signupForm_period-dates">
-                                    <select class="form-select js-select-month" name="experienceStartMonth" aria-label="指揮經歷起始月份"></select>
+                            <div class="applicationForm_period">
+                                <input class="form-control" id="experience" name="experience" type="text">
+                                <div class="applicationForm_period-dates">
                                     <select class="form-select js-select-year" name="experienceStartYear" aria-label="指揮經歷起始年份"></select>
+                                    <select class="form-select js-select-month" name="experienceStartMonth" aria-label="指揮經歷起始月份"></select>
                                     <span aria-hidden="true">~</span>
-                                    <select class="form-select js-select-month" name="experienceEndMonth" aria-label="指揮經歷結束月份"></select>
                                     <select class="form-select js-select-year" name="experienceEndYear" aria-label="指揮經歷結束年份"></select>
+                                    <select class="form-select js-select-month" name="experienceEndMonth" aria-label="指揮經歷結束月份"></select>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <label class="form-label" for="awards">Conducting Honors/Awards 個人指揮得獎經歷 (YYYY/MM)（非必填）</label>
-                            <div class="signupForm_period">
-                                <input class="form-control" id="awards" name="awards" type="text" placeholder="ＯＯＯ獎項">
-                                <div class="signupForm_period-dates">
-                                    <select class="form-select js-select-month" name="awardsStartMonth" aria-label="得獎經歷起始月份"></select>
+                            <div class="applicationForm_period">
+                                <input class="form-control" id="awards" name="awards" type="text">
+                                <div class="applicationForm_period-dates">
                                     <select class="form-select js-select-year" name="awardsStartYear" aria-label="得獎經歷起始年份"></select>
+                                    <select class="form-select js-select-month" name="awardsStartMonth" aria-label="得獎經歷起始月份"></select>
                                     <span aria-hidden="true">~</span>
-                                    <select class="form-select js-select-month" name="awardsEndMonth" aria-label="得獎經歷結束月份"></select>
                                     <select class="form-select js-select-year" name="awardsEndYear" aria-label="得獎經歷結束年份"></select>
+                                    <select class="form-select js-select-month" name="awardsEndMonth" aria-label="得獎經歷結束月份"></select>
                                 </div>
                             </div>
                         </div>
@@ -166,44 +166,44 @@
                             <label class="form-label" for="bioZh">Biography (Chinese) 個人簡介（中文）</label>
                             <textarea class="form-control" id="bioZh" name="bioZh" rows="10"></textarea>
                         </div>
-                        <p class="signupForm_hint">Maximum 500 words. Fill in either language or both. 上限 500 字，可擇一或同時填寫</p>
+                        <p class="applicationForm_hint">Maximum 500 words. Fill in either language or both. 上限 500 字，可擇一或同時填寫</p>
                     </section>
 
                     <!-- 初審資料上傳 -->
-                    <section class="signupForm_section">
-                        <h2 class="signupForm_heading">Preliminary Screening Materials Upload 初審資料上傳</h2>
-                        <p class="signupForm_desc">Preliminary Screening Video Link (Max 30 mins, Rehearsal &amp; Performance required)<br>初審指揮影片網址連結（兩者總長30分鐘內，須含排練與演出）</p>
+                    <section class="applicationForm_section">
+                        <h2 class="applicationForm_heading">Preliminary Screening Materials Upload 初審資料上傳</h2>
+                        <p class="applicationForm_desc">Preliminary Screening Video Link (Max 30 mins, Rehearsal &amp; Performance required)<br>初審指揮影片網址連結（兩者總長30分鐘內，須含排練與演出）</p>
                         <div>
                             <label class="form-label" for="videoLink1">Video Link 1 (Orchestral Rehearsal Video) 影片網址連結一（樂團排練影片）</label>
                             <div class="input-group">
                                 <span class="input-group-text">https://</span>
-                                <input class="form-control" id="videoLink1" name="videoLink1" type="text" inputmode="url" placeholder="Link goes here">
+                                <input class="form-control" id="videoLink1" name="videoLink1" type="text" inputmode="url">
                             </div>
                         </div>
                         <div>
                             <label class="form-label" for="videoLink2">Video Link 2 (Live Performance Video) 影片網址連結二（現場演出影片）</label>
                             <div class="input-group">
                                 <span class="input-group-text">https://</span>
-                                <input class="form-control" id="videoLink2" name="videoLink2" type="text" inputmode="url" placeholder="Link goes here">
+                                <input class="form-control" id="videoLink2" name="videoLink2" type="text" inputmode="url">
                             </div>
                         </div>
-                        <div class="signupForm_note">
+                        <div class="applicationForm_note">
                             <p>For detailed rules regarding the preliminary screening video, please refer to the Competition Rules and Regulations.<br>詳細初審影片規則請見賽制章程</p>
                             <p>Please upload the video to YouTube or Vimeo. (set to Public or Unlisted)<br>Applicants must ensure that the provided video link remains active and accessible until March 31, 2027.<br>影片請上傳至 YouTube 或 Vimeo，可設為「公開」或「非公開」，參賽者應確保所提供之影片連結保持有效且可存取至 2027 年 3 月 31 日止。</p>
                         </div>
                     </section>
 
                     <!-- 初審指揮影片之樂曲總譜 -->
-                    <section class="signupForm_section">
-                        <h2 class="signupForm_heading">Full Score of Preliminary Conducting Video 初審指揮影片之樂曲總譜</h2>
-                        <ul class="signupForm_files list-unstyled">
-                            <li class="signupForm_file">
-                                <div class="signupForm_file-head">
-                                    <p class="signupForm_file-name">Full Score of Preliminary Conducting Video<br>初審指揮影片之樂曲總譜</p>
+                    <section class="applicationForm_section">
+                        <h2 class="applicationForm_heading">Full Score of Preliminary Conducting Video 初審指揮影片之樂曲總譜</h2>
+                        <ul class="applicationForm_files list-unstyled">
+                            <li class="applicationForm_file">
+                                <div class="applicationForm_file-head">
+                                    <p class="applicationForm_file-name">Full Score of Preliminary Conducting Video<br>初審指揮影片之樂曲總譜</p>
                                     <input class="visually-hidden" id="fileScore" name="fileScore" type="file" accept=".pdf">
-                                    <label class="btn signupForm_btn signupForm_uploadBtn" for="fileScore">Upload 選擇檔案</label>
+                                    <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileScore">Upload 選擇檔案</label>
                                 </div>
-                                <div class="signupForm_note">
+                                <div class="applicationForm_note">
                                     <p>The score is strictly for the Jury's evaluation during preliminary screening and will not be disclosed, published, or used for any other purposes.<br>此樂譜僅供評審團初審評量使用，絕不作任何公開或商業用途。</p>
                                     <p>File format: PDF. 檔案格式須為 PDF 檔。</p>
                                 </div>
@@ -212,70 +212,66 @@
                     </section>
 
                     <!-- 報名應備文件上傳 -->
-                    <section class="signupForm_section">
-                        <h2 class="signupForm_heading">Required Documents Upload 報名應備文件上傳</h2>
-                        <ul class="signupForm_files list-unstyled">
-                            <li class="signupForm_file">
-                                <div class="signupForm_file-head">
-                                    <p class="signupForm_file-name">Portrait / Photograph 個人形象照</p>
+                    <section class="applicationForm_section">
+                        <h2 class="applicationForm_heading">Required Documents Upload 報名應備文件上傳</h2>
+                        <ul class="applicationForm_files list-unstyled">
+                            <li class="applicationForm_file">
+                                <div class="applicationForm_file-head">
+                                    <p class="applicationForm_file-name">Portrait / Photograph 個人形象照</p>
                                     <input class="visually-hidden" id="filePortrait" name="filePortrait" type="file" accept=".jpg,.jpeg,.png">
-                                    <label class="btn signupForm_btn signupForm_uploadBtn" for="filePortrait">Upload 選擇檔案</label>
+                                    <label class="btn applicationForm_btn applicationForm_uploadBtn" for="filePortrait">Upload 選擇檔案</label>
                                 </div>
-                                <div class="signupForm_note">
+                                <div class="applicationForm_note">
                                     <p>Format: JPG or PNG, file size 2MB or larger (300 DPI recommended for printing).<br>檔案格式須為 JPG 或 PNG，大小需為 2MB 以上（建議解析度為 300 DPI 以利印刷）</p>
                                 </div>
                             </li>
-                            <li class="signupForm_file">
-                                <div class="signupForm_file-head">
-                                    <p class="signupForm_file-name">Republic of China National Identity Card / Non-ROC Passport Copy<br>中華民國身分證正反面 / 護照影本</p>
+                            <li class="applicationForm_file">
+                                <div class="applicationForm_file-head">
+                                    <p class="applicationForm_file-name">Republic of China National Identity Card / Non-ROC Passport Copy<br>中華民國身分證正反面 / 護照影本</p>
                                     <input class="visually-hidden" id="fileId" name="fileId" type="file" accept=".pdf">
-                                    <label class="btn signupForm_btn signupForm_uploadBtn" for="fileId">Upload 選擇檔案</label>
+                                    <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileId">Upload 選擇檔案</label>
                                 </div>
-                                <div class="signupForm_note">
+                                <div class="applicationForm_note">
                                     <p>File format: PDF. 檔案格式須為 PDF 檔。</p>
                                 </div>
                             </li>
-                            <li class="signupForm_file">
-                                <div class="signupForm_file-head">
-                                    <p class="signupForm_file-name">Legal Guardian Consent Form for Minor Entrants<br>(Required for applicants under 18 years of age)<br>法定代理人同意書 (未滿18歲之參賽者須出具)<br><br>(Optional / 非必傳)</p>
+                            <li class="applicationForm_file">
+                                <div class="applicationForm_file-head">
+                                    <p class="applicationForm_file-name">Legal Guardian Consent Form for Minor Entrants<br>(Required for applicants under 18 years of age)<br>法定代理人同意書 (未滿18歲之參賽者須出具)<br><br>(Optional / 非必傳)</p>
                                     <input class="visually-hidden" id="fileGuardian" name="fileGuardian" type="file" accept=".pdf">
-                                    <label class="btn signupForm_btn signupForm_uploadBtn" for="fileGuardian">Upload 選擇檔案</label>
-                                    <a class="btn signupForm_btn" href="#" download>Download 下載</a>
+                                    <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileGuardian">Upload 選擇檔案</label>
                                 </div>
-                                <div class="signupForm_note">
+                                <div class="applicationForm_note">
                                     <p>File format: PDF. 檔案格式須為 PDF 檔。</p>
                                 </div>
                             </li>
-                            <li class="signupForm_file">
-                                <div class="signupForm_file-head">
-                                    <p class="signupForm_file-name">Conflict of Interest Declaration Form 利益關係聲明表</p>
+                            <li class="applicationForm_file">
+                                <div class="applicationForm_file-head">
+                                    <p class="applicationForm_file-name">Conflict of Interest Declaration Form 利益關係聲明表</p>
                                     <input class="visually-hidden" id="fileConflict" name="fileConflict" type="file" accept=".pdf">
-                                    <label class="btn signupForm_btn signupForm_uploadBtn" for="fileConflict">Upload 選擇檔案</label>
-                                    <a class="btn signupForm_btn" href="#" download>Download 下載</a>
+                                    <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileConflict">Upload 選擇檔案</label>
                                 </div>
-                                <div class="signupForm_note">
+                                <div class="applicationForm_note">
                                     <p>File format: PDF. 檔案格式須為 PDF 檔。</p>
                                 </div>
                             </li>
-                            <li class="signupForm_file">
-                                <div class="signupForm_file-head">
-                                    <p class="signupForm_file-name">Personal Data Collection, Processing and Use Consent Form<br>個人資料蒐集處理及利用同意書</p>
+                            <li class="applicationForm_file">
+                                <div class="applicationForm_file-head">
+                                    <p class="applicationForm_file-name">Personal Data Collection, Processing and Use Consent Form<br>個人資料蒐集處理及利用同意書</p>
                                     <input class="visually-hidden" id="filePrivacy" name="filePrivacy" type="file" accept=".pdf">
-                                    <label class="btn signupForm_btn signupForm_uploadBtn" for="filePrivacy">Upload 選擇檔案</label>
-                                    <a class="btn signupForm_btn" href="#" download>Download 下載</a>
+                                    <label class="btn applicationForm_btn applicationForm_uploadBtn" for="filePrivacy">Upload 選擇檔案</label>
                                 </div>
-                                <div class="signupForm_note">
+                                <div class="applicationForm_note">
                                     <p>File format: PDF. 檔案格式須為 PDF 檔。</p>
                                 </div>
                             </li>
-                            <li class="signupForm_file">
-                                <div class="signupForm_file-head">
-                                    <p class="signupForm_file-name">Entrant Audiovisual and Likeness Release Form<br>參賽者影音及肖像授權同意書</p>
+                            <li class="applicationForm_file">
+                                <div class="applicationForm_file-head">
+                                    <p class="applicationForm_file-name">Entrant Audiovisual and Likeness Release Form<br>參賽者影音及肖像授權同意書</p>
                                     <input class="visually-hidden" id="fileRelease" name="fileRelease" type="file" accept=".pdf">
-                                    <label class="btn signupForm_btn signupForm_uploadBtn" for="fileRelease">Upload 選擇檔案</label>
-                                    <a class="btn signupForm_btn" href="#" download>Download 下載</a>
+                                    <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileRelease">Upload 選擇檔案</label>
                                 </div>
-                                <div class="signupForm_note">
+                                <div class="applicationForm_note">
                                     <p>File format: PDF. 檔案格式須為 PDF 檔。</p>
                                 </div>
                             </li>
@@ -283,7 +279,7 @@
                     </section>
 
                     <div class="text-center">
-                        <button class="btn btn_primary signup_start" type="submit">下一步，繳交報名費</button>
+                        <button class="btn btn_primary application_start" type="submit">下一步，繳交報名費</button>
                     </div>
                 </form>
             </div>
@@ -296,6 +292,21 @@
 
     <script>
         $(function(){
+            // 進入頁面先跳出注意事項；取消則返回報名須知頁
+            const showNotice = () => _confirm({
+                title: 'Notice 注意事項',
+                content: `
+                    <p>This application system does not support draft saving.<br>We recommend having all required information and documents ready before starting.<br>Please note that there is a 30-minute time limit for this form, after which unsaved data may be automatically cleared.</p>
+                    <p>本報名系統無線上存檔功能，建議先行備妥所有資料及文件後再開始填寫，請留意填寫時間限制為 30 分鐘，逾時資料將自動清除。</p>
+                `,
+                btnOkText: 'Confirm 確認',
+                btnCancelText: 'Cancel 取消',
+                cancelFunction: () => { location.href = '/templates/application/application.html' },
+            })
+
+            if ($('#confirmModal').length) showNotice()
+            else $(document).one('partials:loaded', showNotice) // TODO 靜態展示：modal 由 demo.js 動態載入
+
             // 起訖年月下拉選單：月份 1–12，年份由今年往前 60 年
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             const thisYear = new Date().getFullYear()
@@ -309,7 +320,7 @@
             $('.js-select-year').html(yearOptions)
 
             // 下一步，繳交報名費：先跳出確認視窗
-            $('#applicationForm').on('submit', function(e){
+            $('#registerForm').on('submit', function(e){
                 e.preventDefault()
 
                 _confirm({

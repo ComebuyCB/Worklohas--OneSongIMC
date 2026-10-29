@@ -72,6 +72,9 @@ Structure instruction：
             /* layout：左側標題欄寬，240px（768）→ 295px（1440）隨螢幕寬線性變化，infoSection / pageBanner 共用以對齊 */
             --aside-w: clamp(240px, calc(177px + 8.2vw), 295px);
             --aside-gap: 20px;
+
+            /* header 高度：.header_navbar 與首頁輪播共用 */
+            --header-h: 54px;
         }
 
         :root:lang(en) {
@@ -87,6 +90,8 @@ Structure instruction：
                 --fs-h1: 40px;
                 --fs-h2: 30px;
                 --fs-h3: 30px;
+
+                --header-h: 86px;
             }
         }
 
@@ -94,6 +99,7 @@ Structure instruction：
     /*====== [Structure] ======*/
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-body); font-family: var(--ff-body); font-size: var(--fs-p); }
+        body:lang(zh) { text-align: justify; } /* 中文左右對齊；英文維持靠左，避免字距被拉開 */
         #wrap { container: wrap / inline-size; display: flex; flex-direction: column; max-width: 1920px; margin-inline: auto; min-height: 100vh; min-height: 100dvh; }
         #wrap > * { --wrap-w: 100cqw; } /* 直接子層最近的 container 必為 #wrap */
         main { flex-grow: 1; }
@@ -149,6 +155,10 @@ Structure instruction：
             @media (min-width: 992px) {
                 .swiper { --swiper-pagination-bullet-size: 13px; }
             }
+
+
+        /*=== photoswipe ===*/
+            .pswp__img { background-color: var(--bg-body); } /* 透明 PNG 補底色，避免透出後方頁面 */
 
 
     /*====== [In-House] ======*/
@@ -237,13 +247,10 @@ Structure instruction：
             .maskIcon_hamburger { --icon: url(../img/icon/hamburger.svg); }
             .maskIcon_arrowLong { --icon: url(../img/icon/arrow_long.svg); width: 59px; height: 14px; }
             .maskIcon_marker { --icon: url(../img/icon/marker.svg); width: 14px; height: 30px; }
-            .maskIcon_conduct { --icon: url(../img/icon/icon_conduct.png); }
-            .maskIcon_signup { --icon: url(../img/icon/icon_signup.svg); }
+            .maskIcon_application { --icon: url(../img/icon/icon_application.svg); }
             .maskIcon_music { --icon: url(../img/icon/icon_music.svg); }
             .maskIcon_jury { --icon: url(../img/icon/icon_jury.svg); }
-            .maskIcon_ring { --size: 29px; --icon: url(../img/icon/ring.svg); }
             .maskIcon_decoChevron { --icon: url(../img/icon/deco_chevron.svg); width: 35px; height: 46px; }
-            .maskIcon_download { --size: 20px; --icon: url(../img/icon/download.svg); }
             .maskIcon_angleUp { --icon: url(../img/icon/angle_up.svg); width: 16px; height: 9px; }
             @media (min-width: 768px) {
                 .maskIcon_arrowLong { width: 75px; height: 18px; }
@@ -278,6 +285,14 @@ Structure instruction：
             .editor_container ul { padding-left: 1.4em; }
             .editor_container li > p { margin: 0; }
             .editor_container > :last-child { margin-bottom: 0; }
+
+
+        /*=== list_plain ===*/
+            /* 曲目清單：無符號，換行時第二行起自動縮排（凸排）；子清單為次要內容並縮排（例：作品名稱 > 樂章）。用於 rules infoBox、repertoire_card */
+            .list_plain,
+            .editor_container .list_plain { padding-left: 0; list-style: none; }
+            .list_plain > li + li { margin-top: 4px; padding-top: 0px; }
+            .list_plain > li > ul { margin-block: 4px 0; }
 
 
         /*=== infoBox ===*/
@@ -365,7 +380,7 @@ Structure instruction：
         /*=== fileList ===*/
             .fileList { display: flex; flex-direction: column; gap: 3px; margin: 0; padding: 0; list-style: none; }
             .fileList-link { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px; background-color: white; font-size: 17px; }
-            .fileList-link > .maskIcon { color: var(--primary); }
+            .fileList-link::after { content: ""; flex-shrink: 0; width: 20px; height: 20px; background-color: var(--primary); -webkit-mask: url(../img/icon/download.svg) no-repeat center / contain; mask: url(../img/icon/download.svg) no-repeat center / contain; } /* 下載 icon，固定主色 */
             .fileList-name { min-width: 0; overflow-wrap: anywhere; }
 
 
@@ -394,6 +409,11 @@ Structure instruction：
                 .confirmModal-content { gap: 40px; padding: 30px; }
                 .confirmModal-footer { flex-direction: row; justify-content: center; gap: 20px; }
             }
+
+
+        /*=== zoomLink ===*/
+            /* 點擊放大的圖片連結（PhotoSwipe，見 main.js） */
+            .zoomLink { display: block; cursor: zoom-in; }
 
 
 
@@ -433,8 +453,8 @@ Structure instruction：
 
     /*====== [Layout Pages] ======*/
         /*=== header ===*/
-            .header { position: relative; z-index: 1030; background-color: var(--bg-body); }
-            .header_navbar { padding: 10px 0; }
+            .header { position: sticky; top: 0; z-index: 1030; background-color: var(--bg-body); }
+            .header_navbar { min-height: var(--header-h); padding: 10px 0; }
             .header_container { gap: 10px; }
             .header_logo { flex-shrink: 0; margin-right: 9px; }
             .header_logo > img { display: block; width: auto; height: 34px; }
@@ -449,11 +469,11 @@ Structure instruction：
             .header_nav-link:hover { color: var(--primary); }
             .header_lang { display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 0 24px 24px; font-size: 17px; font-weight: 500; }
             .header_lang-link.is_active { color: var(--primary); font-weight: 700; }
-            .header_signup { margin-left: auto; padding: 5px 12px; border: 0; border-radius: 8px; font-size: 14px; font-weight: 350; line-height: 1.4; }
+            .header_application { margin-left: auto; padding: 5px 12px; border: 0; border-radius: 8px; font-size: 14px; font-weight: 350; line-height: 1.4; }
             .header_toggler { padding: 0; border: 0; color: black; }
             .header_toggler:focus { box-shadow: none; }
             @media (min-width: 992px) {
-                .header_navbar { min-height: 86px; padding: 0; }
+                .header_navbar { padding: 0; }
                 .header_container { gap: 0; align-self: stretch; }
                 .header_logo { margin-right: 0; }
                 .header_logo > img { height: 46px; }
@@ -467,7 +487,7 @@ Structure instruction：
                 .header_nav-item:focus-within > .header_sub { opacity: 1; visibility: visible; }
                 .header_sub-link { padding: 0 12px; color: black; font-size: 16px; font-weight: 350; line-height: 1.25; }
                 .header_lang { margin-right: 30px; padding: 0; }
-                .header_signup { margin-left: 0; padding: 10px 18px; border-radius: 12px; font-size: 17px; font-weight: 400; line-height: 1.2; }
+                .header_application { margin-left: 0; padding: 10px 18px; border-radius: 12px; font-size: 17px; font-weight: 400; line-height: 1.2; width: 120px; }
             }
             @media (min-width: 1400px) {
                 .header_container { max-width: 1320px; } /* 設計稿 header 未跟內容縮到 1240，維持 Bootstrap 原寬 */
@@ -510,8 +530,9 @@ Structure instruction：
 
             /* banner */
             .index_banner-swiper { --swiper-pagination-bottom: 41px; }
-            .index_banner-img { display: block; width: 100%; height: auto; }
-            .index_banner-ctrl { position: absolute; top: 0; bottom: 0; z-index: 10; display: none; align-items: center; justify-content: center; width: 100px; padding: 0; background: none; border: 0; color: white; transition: opacity .2s; }
+            .index_banner-img { display: block; width: 100%; height: auto; max-height: calc(100svh - var(--header-h)); aspect-ratio: 5 / 8; object-fit: cover; } /* header + 輪播最高一個畫面，超出時裁切填滿，不足時維持比例；手機圖 786×1268 ≈ 5/8 */
+            .index_banner-ctrl { position: absolute; top: 0; bottom: 0; z-index: 10; display: none; align-items: center; justify-content: center; width: 50px; padding: 0; background: none; border: 0; color: white; transition: opacity .2s; }
+            .index_banner-ctrl > .maskIcon_chevron { width: 10px; height: 28px; }
             .index_banner-ctrl:hover { opacity: .7; }
             .index_banner-ctrl_prev { left: 0; }
             .index_banner-ctrl_next { right: 0; }
@@ -529,26 +550,6 @@ Structure instruction：
             /* award */
             .index_award { padding: 40px 0 100px; background-color: white; }
             .index_award-body { margin-top: 20px; }
-            .index_award-list { --bs-gutter-x: 10px; }
-            .index_award-list > .col { min-width: 0; } /* 允許縮到內容寬以下，避免換行 */
-            .index_award-list > .index_award-center { min-width: 100px; } /* 首獎置中，最小寬度 */
-            .index_award-divider { margin: 30px 0; border-top-color: var(--primary); opacity: 1; }
-
-            .index_awardCard { --bg: var(--gray-e7); --pad: 30px 20px; --icon-size: 61px; --title-fs: 24px; --title-clr: var(--black-1e); --clr: var(--primary-dark); --num-fs: 21px; --unit-fs: 13px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: var(--pad); background-color: var(--bg); border-radius: 26px; color: var(--clr); text-align: center; }
-            .index_awardCard > .maskIcon { --size: var(--icon-size); margin-bottom: 20px; color: white; }
-            .index_awardCard-title { margin: 0; color: var(--title-clr); font-size: var(--title-fs); font-weight: 700; line-height: 1.2; }
-            .index_awardCard-prize { display: flex; flex-direction: column-reverse; align-items: center; margin: 10px 0 0; font-weight: 700; line-height: 1.2; }
-            .index_awardCard-prize > ._num { font-size: var(--num-fs); }
-            .index_awardCard-prize > ._unit { font-size: var(--unit-fs); }
-            .index_awardCard-note { margin: 20px 0 0; font-size: 15px; font-weight: 700; letter-spacing: .06em; }
-
-            .index_awardCard_first { --bg: var(--primary-dark); --pad: 30px 20px; --title-clr: white; --clr: white; --num-fs: 30px; }
-            .index_awardCard_first > .index_awardCard-prize { margin-top: 20px; }
-            .index_awardCard_second { --bg: var(--beige); --pad: 48px 20px; --title-clr: var(--primary); }
-            .index_awardCard_third { --title-clr: var(--primary); }
-            .index_awardCard_laurel { --bg: var(--beige); --pad: 20px 10px; --title-fs: 22px; --num-fs: 30px; }
-            .index_awardCard_laurel > .index_awardCard-prize { line-height: 1; }
-            .index_awardCard_special { --pad: 18px 10px; --title-fs: 18px; }
 
             /* entry */
             .index_entry { padding: 80px 0; background-color: var(--primary); color: white; }
@@ -563,36 +564,22 @@ Structure instruction：
             .index_entryCard-icon { --size: 40px; grid-area: icon; color: var(--primary); }
             .index_entryCard-arrow { grid-area: arrow; width: 15px; height: 33px; color: var(--primary); }
 
-            @media (min-width: 768px) {
+            /* 輪播 576 起切換為 PC 版圖片，需與 index.html <source media> 一致 */
+            @media (min-width: 576px) {
                 .index_banner-swiper { --swiper-pagination-bottom: 54px; }
-                .index_banner-img { aspect-ratio: 48 / 23; object-fit: cover; } /* 設計稿 1440×690，後台上傳比例不一時統一裁切 */
+                .index_banner-img { aspect-ratio: 13 / 6; }
                 .index_banner-ctrl { display: flex; }
+            }
+
+            @media (min-width: 768px) {
+                .index_banner-ctrl { width: 100px; }
+                .index_banner-ctrl > .maskIcon_chevron { width: 14px; height: 40px; }
 
                 .index_about { padding-top: 100px; }
                 .index_about-lead { margin-top: 0; }
 
                 .index_news-body { padding-inline: 0; }
                 .index_news { padding-bottom: 50px; }
-
-                .index_award-list { --bs-gutter-x: 20px; }
-                .index_award-divider { margin: 50px 0; }
-
-                .index_awardCard { --pad: 30px; --icon-size: 66px; --num-fs: 40px; --unit-fs: 30px; }
-                .index_awardCard-title { line-height: var(--bs-body-line-height); }
-                .index_awardCard-prize { flex-direction: row; align-items: baseline; gap: 10px; line-height: var(--bs-body-line-height); }
-                .index_awardCard-prize > ._num { font-weight: 900; }
-                .index_awardCard-note { font-size: 21px; line-height: 1.1; }
-
-                .index_awardCard_first { --pad: 32px 30px; --icon-size: 86px; --title-fs: 40px; --num-fs: 45px; }
-                .index_awardCard_second { --pad: 48px 30px; --title-fs: 32px; }
-                .index_awardCard_third { --title-fs: 30px; }
-                .index_awardCard_laurel { --pad: 22px 30px; --title-fs: 26px; --num-fs: 34px; --unit-fs: 25px; }
-                .index_awardCard_laurel > .index_awardCard-prize { line-height: var(--bs-body-line-height); }
-                .index_awardCard_special { --pad: 22px 30px; --title-fs: 26px; }
-
-                /* 英文版金額為「US$20,000」：幣別在前、與數字同字級 */
-                :lang(en) .index_awardCard-prize { gap: 0; }
-                :lang(en) .index_awardCard-prize > ._unit { order: -1; font-size: var(--num-fs); font-weight: 900; }
 
                 .index_entry-list { grid-template-columns: repeat(3, 1fr); }
                 .index_entry-info { flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; }
@@ -611,50 +598,10 @@ Structure instruction：
             .rules_round-lead { margin: 0; color: var(--primary); font-size: 19px; font-weight: 500; letter-spacing: .06em; }
             .rules_boxes { display: grid; gap: 20px; }
 
-            .rules_prizes { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-            .rules_prize { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 20px 30px; background-color: white; border-radius: 15px; text-align: center; }
-            .rules_prize-head { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-            .rules_prize-name { display: flex; align-items: center; gap: 10px; margin: 0; color: var(--primary); font-size: 30px; font-weight: 700; line-height: 1.2; }
-            .rules_prize-amount { margin: 0; color: var(--primary-dark); font-size: 40px; font-weight: 700; line-height: 1.2; }
-            .rules_prize-amount > small { font-size: .65em; }
-            .rules_prize-body { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-            .rules_prize-desc { margin: 0; font-size: 17px; font-weight: 350; letter-spacing: .06em; }
-            .rules_prize-quota { margin: 0; font-size: 14px; font-weight: 350; letter-spacing: .04em; }
-
-            .rules_prize_first .rules_prize-desc { font-weight: 400; }
-            .rules_prize_minor { flex-direction: row; gap: 20px; padding: 14px 30px; text-align: left; }
-            .rules_prize_minor .rules_prize-name { flex-shrink: 0; color: var(--gold); font-size: 18px; }
-            .rules_prize_minor .rules_prize-body { flex-flow: row wrap; align-items: baseline; gap: 3px 10px; }
-
             @media (min-width: 768px) {
                 .rules_body { gap: 120px; }
                 .rules_boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-                .rules_prizes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-                .rules_prize { flex-direction: row; gap: 30px; padding: 30px; text-align: left; }
-                .rules_prize-body { align-items: flex-start; }
-                .rules_prize-name { padding-left: 20px; }
-
-                .rules_prize_first { grid-column: 1 / -1; gap: 50px; }
-                .rules_prize_first > .rules_prize-head { flex-direction: row; gap: 20px; }
-                .rules_prize_first .rules_prize-body { max-width: 550px; }
-
-                /* 貳獎、參獎：左側獎名，右側金額＋說明 */
-                .rules_prize_mid { display: grid; grid-template: "name amount" auto "name body" auto / auto minmax(0, 1fr); align-items: center; column-gap: 30px; row-gap: 10px; }
-                .rules_prize_mid > .rules_prize-head { display: contents; }
-                .rules_prize_mid .rules_prize-name { grid-area: name; }
-                .rules_prize_mid .rules_prize-amount { grid-area: amount; }
-                .rules_prize_mid > .rules_prize-body { grid-area: body; }
-
-                .rules_prize_minor { grid-column: 1 / -1; gap: 10px; padding: 14px 30px; }
-                .rules_prize_minor .rules_prize-name { width: 150px; padding-inline: 20px; font-size: 22px; }
-                .rules_prize_minor .rules_prize-body { align-items: center; }
             }
-
-
-        /*=== jury ===*/
-            .jury_notice { display: flex; padding: 30px 20px; border-bottom: 1px solid #000; }
-            .jury_notice > p { margin: 0; }
 
 
         /*=== about ===*/
@@ -678,15 +625,16 @@ Structure instruction：
             .repertoire_card { display: flex; flex-direction: column; gap: 10px; padding: 30px; background-color: white; }
             .repertoire_card-title { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: .06em; line-height: 1.65; }
             .repertoire_card-list { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; font-size: 17px; font-weight: 500; letter-spacing: .06em; line-height: 1.65; list-style: none; }
-            .repertoire_card-divider { margin: 0; border-top-color: var(--border); opacity: 1; }
 
             /* 樂譜下載連結：手機版 icon 靠右並對齊第一行，電腦版緊接文字後 */
-            .repertoire_file { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
-            .repertoire_file > .maskIcon { margin-top: calc((1.65em - 20px) / 2); } /* 顏色跟連結，hover 一起變橘 */
+            .repertoire_file { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+            .repertoire_file::after { content: ""; flex-shrink: 0; width: 20px; height: 20px; margin-top: calc((1.65em - 16px) / 2); background-color: currentColor; -webkit-mask: url(../img/icon/download.svg) no-repeat center / contain; mask: url(../img/icon/download.svg) no-repeat center / contain; } /* 下載 icon；顏色跟連結，hover 一起變橘 */
+
+            .repertoire_card-list li > ul { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; } /* 樂章等次要項目，間距同第一層 */
 
             @media (min-width: 768px) {
-                .repertoire_file { display: inline-flex; align-items: center; }
-                .repertoire_file > .maskIcon { margin-top: 0; }
+                .repertoire_file { display: inline-flex; align-items: center; text-indent: 0; } /* inline-flex 內不再套用凸排的負縮排，避免文字左移 */
+                .repertoire_file::after { margin-top: 0; }
             }
 
 
@@ -723,63 +671,62 @@ Structure instruction：
             }
 
 
-        /*=== signup ===*/
-            .signup_notice { display: flex; flex-direction: column; gap: 30px; }
-            .signup_item { display: flex; flex-direction: column; gap: 10px; }
-            .signup_item-title { margin: 0; font-size: 19px; font-weight: 500; letter-spacing: .06em; line-height: var(--bs-body-line-height); }
-            .signup_agree { display: flex; align-items: center; gap: 8px; min-height: 0; margin: 0; padding: 0; color: var(--black-2c); font-weight: 350; letter-spacing: .06em; }
-            .signup_agree > .form-check-input { flex-shrink: 0; width: 20px; height: 20px; margin: 0; border-color: var(--gray-ae); }
-            .signup_start { width: 100%; padding: 9px 12px; border-radius: 5px; font-size: 17px; line-height: 1.2; }
+        /*=== application ===*/
+            .application_notice { display: flex; flex-direction: column; gap: 30px; }
+            .application_item { display: flex; flex-direction: column; gap: 10px; }
+            .application_item-title { margin: 0; font-size: 19px; font-weight: 500; letter-spacing: .06em; line-height: var(--bs-body-line-height); }
+            .application_agree { display: flex; align-items: center; gap: 8px; min-height: 0; margin: 0; padding: 0; color: var(--black-2c); font-weight: 350; letter-spacing: .06em; }
+            .application_agree > .form-check-input { flex-shrink: 0; width: 20px; height: 20px; margin: 0; border-color: var(--gray-ae); }
+            .application_start { width: 100%; padding: 9px 12px; border-radius: 5px; font-size: 17px; line-height: 1.2; }
             /* 未勾選同意前的停用樣式 */
-            .signup_start.disabled { --bs-btn-disabled-bg: var(--gray-ae); --bs-btn-disabled-border-color: var(--gray-ae); --bs-btn-disabled-color: var(--gray-e7); --bs-btn-disabled-opacity: 1; }
+            .application_start.disabled { --bs-btn-disabled-bg: var(--gray-ae); --bs-btn-disabled-border-color: var(--gray-ae); --bs-btn-disabled-color: var(--gray-e7); --bs-btn-disabled-opacity: 1; }
             @media (min-width: 768px) {
-                .signup_notice { gap: 40px; }
-                .signup_start { width: auto; padding: 20px 80px; font-size: 19px; line-height: 1.05; }
+                .application_notice { gap: 40px; }
+                .application_start { width: auto; padding: 20px 80px; font-size: 19px; line-height: 1.05; }
             }
 
 
-        /*=== signupForm ===*/
-            .signupForm_section { display: flex; flex-direction: column; gap: 20px; }
-            .signupForm_heading { margin: 0; padding: 6px 8px; border-radius: 4px; background-color: var(--primary); color: white; font-size: 20px; font-weight: 500; line-height: var(--bs-body-line-height); }
-            .signupForm_desc { margin: 0; font-size: 15px; }
-            .signupForm_hint { margin: 0; color: var(--primary-dark); font-size: 14px; font-weight: 350; }
+        /*=== applicationForm ===*/
+            .applicationForm_section { display: flex; flex-direction: column; gap: 20px; }
+            .applicationForm_heading { margin: 0; padding: 6px 8px; border-radius: 4px; background-color: var(--primary); color: white; font-size: 20px; font-weight: 500; line-height: var(--bs-body-line-height); }
+            .applicationForm_desc { margin: 0; font-size: 15px; }
+            .applicationForm_hint { margin: 0; color: var(--primary-dark); font-size: 14px; font-weight: 350; }
 
             /* 基本資料：電腦版欄寬 450px */
-            .signupForm_basic { --bs-gutter-x: 20px; --bs-gutter-y: 20px; }
-            .signupForm_basic > * { display: flex; flex-direction: column; justify-content: flex-end; }
-            .signupForm_verify { display: flex; align-items: center; gap: 20px; margin-top: 10px; }
-            .signupForm_verify-code { display: flex; flex-grow: 1; align-items: center; gap: 8px; }
-            .signupForm_verify-code > .form-label { flex-shrink: 0; margin: 0; }
-            .signupForm_verified { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 10px; color: var(--success); font-size: 14px; font-weight: 350; }
+            .applicationForm_basic { --bs-gutter-x: 20px; --bs-gutter-y: 20px; }
+            .applicationForm_basic > * { display: flex; flex-direction: column; justify-content: flex-end; }
+            .applicationForm_verify { display: flex; align-items: center; gap: 20px; margin-top: 10px; }
+            .applicationForm_verify-code { display: flex; flex-grow: 1; align-items: center; gap: 8px; }
+            .applicationForm_verify-code > .form-label { flex-shrink: 0; margin: 0; }
+            .applicationForm_verified { display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 10px; color: var(--success); font-size: 14px; font-weight: 350; }
 
             /* 學經歷：名稱＋起訖年月 */
-            .signupForm_period { display: grid; gap: 20px; }
-            .signupForm_period-dates { display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 10px 8px; }
+            .applicationForm_period { display: grid; gap: 20px; }
+            .applicationForm_period-dates { display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 10px 8px; }
 
             /* 小按鈕：發送驗證碼、下載、上傳 */
-            .signupForm_btn { --bs-btn-padding-y: 4px; --bs-btn-padding-x: 12px; --bs-btn-color: black; --bs-btn-bg: var(--bs-gray-200); --bs-btn-border-color: var(--bs-gray-300); --bs-btn-border-radius: 10px; --bs-btn-hover-color: black; --bs-btn-hover-bg: var(--bs-gray-300); --bs-btn-hover-border-color: var(--bs-gray-300); --bs-btn-active-color: black; --bs-btn-active-bg: var(--bs-gray-300); --bs-btn-active-border-color: var(--bs-gray-400); flex-shrink: 0; font-size: 14px; font-weight: 350; }
-            .signupForm_uploadBtn { --bs-btn-padding-y: 8px; --bs-btn-padding-x: 18px; --bs-btn-bg: var(--bs-gray-100); --bs-btn-border-color: var(--bs-gray-200); }
+            .applicationForm_btn { --bs-btn-padding-y: 4px; --bs-btn-padding-x: 12px; --bs-btn-color: black; --bs-btn-bg: var(--bs-gray-200); --bs-btn-border-color: var(--bs-gray-300); --bs-btn-border-radius: 10px; --bs-btn-hover-color: black; --bs-btn-hover-bg: var(--bs-gray-300); --bs-btn-hover-border-color: var(--bs-gray-300); --bs-btn-active-color: black; --bs-btn-active-bg: var(--bs-gray-300); --bs-btn-active-border-color: var(--bs-gray-400); flex-shrink: 0; font-size: 14px; font-weight: 350; }
+            .applicationForm_uploadBtn { --bs-btn-padding-y: 8px; --bs-btn-padding-x: 18px; --bs-btn-bg: var(--bs-gray-100); --bs-btn-border-color: var(--bs-gray-200); }
 
             /* 藍色提示框 */
-            .signupForm_note { padding: 20px; border: 1px solid var(--note-border); border-radius: 10px; background-color: var(--note-bg); color: var(--note-text); font-size: 14px; font-weight: 350; }
-            .signupForm_note > p { margin: 0; }
-            .signupForm_note > p + p { margin-top: 1.48em; } /* 段落間空一行 */
+            .applicationForm_note { padding: 20px; border: 1px solid var(--note-border); border-radius: 10px; background-color: var(--note-bg); color: var(--note-text); font-size: 14px; font-weight: 350; }
+            .applicationForm_note > p { margin: 0; }
+            .applicationForm_note > p + p { margin-top: 1.48em; } /* 段落間空一行 */
 
             /* 檔案上傳 */
-            .signupForm_files { display: flex; flex-direction: column; gap: 10px; padding: 20px; border: 1px solid var(--bs-gray-200); border-radius: 10px; background-color: var(--bs-gray-100); }
-            .signupForm_file { display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 10px; background-color: white; }
-            .signupForm_file-head { display: grid; justify-items: start; gap: 10px; }
-            .signupForm_file-name { margin: 0; font-size: 15px; }
-            .signupForm_file-head > input:focus-visible + .signupForm_uploadBtn { outline: 2px solid var(--primary); outline-offset: 2px; }
+            .applicationForm_files { display: flex; flex-direction: column; gap: 10px; padding: 20px; border: 1px solid var(--bs-gray-200); border-radius: 10px; background-color: var(--bs-gray-100); }
+            .applicationForm_file { display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 10px; background-color: white; }
+            .applicationForm_file-head { display: grid; justify-items: start; gap: 10px; }
+            .applicationForm_file-name { margin: 0; font-size: 15px; }
+            .applicationForm_file-head > input:focus-visible + .applicationForm_uploadBtn { outline: 2px solid var(--primary); outline-offset: 2px; }
 
             @media (min-width: 768px) {
-                .signupForm_basic { max-width: calc(460px + var(--bs-gutter-x)); }
-                .signupForm_period { grid-template-columns: 1fr auto; align-items: center; max-width: 660px; }
-                .signupForm_period-dates { grid-template-columns: repeat(2, 88px) auto repeat(2, 88px); }
+                .applicationForm_basic { max-width: calc(460px + var(--bs-gutter-x)); }
+                .applicationForm_period { grid-template-columns: 1fr auto; align-items: center; max-width: 660px; }
+                .applicationForm_period-dates { grid-template-columns: repeat(2, 100px) auto repeat(2, 100px); } /* 100px 才放得下「Month」與下拉箭頭 */
                 /* 上傳鈕固定右欄並垂直置中；下載鈕落在左欄第二列 */
-                .signupForm_file-head { grid-template-columns: 1fr auto; gap: 0 20px; }
-                .signupForm_file-head > .signupForm_uploadBtn { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
-                .signupForm_file-head > .signupForm_btn:not(.signupForm_uploadBtn) { margin-top: 10px; }
+                .applicationForm_file-head { grid-template-columns: 1fr auto; gap: 0 20px; }
+                .applicationForm_file-head > .applicationForm_uploadBtn { grid-column: 2; align-self: center; }
             }
 
 

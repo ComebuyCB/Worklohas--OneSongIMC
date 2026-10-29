@@ -28,7 +28,7 @@
     <link href="/static/common/css/main.css" rel="stylesheet">
     <script src="/static/common/js/main.js"></script>
 </head>
-<body id="signup">
+<body id="application">
     <div id="wrap">
         <header TODO-replace="/templates/_layout/header.html"></header>
 
@@ -45,29 +45,29 @@
 
             <div class="container-lg pageBody">
                 <div class="container_1030 paperBox">
-                    <section class="signup_notice">
+                    <section class="application_notice">
                         <h2 class="fs_h3 m-0 lh-base">報名須知</h2>
-                        <div class="signup_item">
-                            <h3 class="signup_item-title">報名截止與規範：</h3>
+                        <div class="application_item">
+                            <h3 class="application_item-title">報名截止與規範：</h3>
                             <div class="editor_container">
                                 <p>報名收件截止時間為 2026年12月31日 23:59（臺北時間，UTC+8）。參賽者須於截止前於大賽官方網站完成完整個人資料填寫、文件上傳及報名費繳交程序。逾期提交、資料不全或未完成繳費者，大賽籌委會有權不予受理或取消參賽資格。</p>
                             </div>
                         </div>
-                        <div class="signup_item">
-                            <h3 class="signup_item-title">個人資料保護與永久典藏聲明：</h3>
+                        <div class="application_item">
+                            <h3 class="application_item-title">個人資料保護與永久典藏聲明：</h3>
                             <div class="editor_container">
                                 <p>為辦理「2027灣聲國際音樂大賽——指揮大賽」，參賽者同意主辦單位（灣聲樂團）得依個人資料保護法及相關法規，於全球範圍內蒐集、處理及利用參賽者（及法定代理人）所提交之基本資料、身分證明、學經歷、影音樂譜等個人資料，用於賽務執行、評審、聯繫、獎金核發、媒體宣傳及巡演等目的。參賽者同意身分與財務等行政資料於法定保存期屆滿後5年內安全銷毀，而賽事成果、影音紀錄及獲獎名單則由主辦單位永久典藏並公開展示。參賽者得依法行使個資查詢、閱覽、更正或刪除等權利（惟賽務及典藏所必需者不在此限）。此外，參賽者已知悉報名費係用於即時行政審查服務，依消費者保護法規定完成繳費後不適用7日鑑賞期，除賽事整體取消外概不退還。提交報名即視為已閱讀並同意上述及「個人資料蒐集、處理及利用同意書」之全部內容。</p>
                             </div>
                         </div>
                     </section>
 
-                    <div class="form-check signup_agree">
-                        <input class="form-check-input js-signup-agree" type="checkbox" id="signupAgree">
-                        <label class="form-check-label" for="signupAgree">我已閱讀並同意上述報名須知與相關條款。</label>
+                    <div class="form-check application_agree">
+                        <input class="form-check-input js-application-agree" type="checkbox" id="applicationAgree">
+                        <label class="form-check-label" for="applicationAgree">我已閱讀並同意上述報名須知與相關條款。</label>
                     </div>
 
                     <div class="text-center">
-                        <a class="btn btn_primary signup_start js-signup-start disabled" href="/templates/apply/signup-form.html" aria-disabled="true" tabindex="-1">開始報名</a>
+                        <a class="btn btn_primary application_start js-application-start disabled" href="/templates/application/application-form.html" aria-disabled="true" tabindex="-1">開始報名</a>
                     </div>
                 </div>
             </div>
@@ -81,10 +81,10 @@
     <script>
         // 報名須知：勾選同意後才可點擊「開始報名」
         $(function(){
-            $(document).on('change', '.js-signup-agree', function(){
+            $(document).on('change', '.js-application-agree', function(){
                 const isAgree = this.checked
 
-                $('.js-signup-start').toggleClass('disabled', !isAgree).attr({ 'aria-disabled': !isAgree, tabindex: isAgree ? null : -1 })
+                $('.js-application-start').toggleClass('disabled', !isAgree).attr({ 'aria-disabled': !isAgree, tabindex: isAgree ? null : -1 })
             })
         })
     </script>
