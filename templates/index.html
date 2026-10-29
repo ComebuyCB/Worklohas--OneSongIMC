@@ -25,6 +25,9 @@
     <link href="/static/plugins/fontawesome-free-7.3.1-web/css/all.min.css" rel="stylesheet">
     <link href="/static/plugins/swiper-12.2.0/swiper-bundle.min.css" rel="stylesheet">
     <script src="/static/plugins/swiper-12.2.0/swiper-bundle.min.js"></script>
+    <link href="/static/plugins/photoswipe-5.4.4/photoswipe.css" rel="stylesheet">
+    <script src="/static/plugins/photoswipe-5.4.4/umd/photoswipe.umd.min.js"></script>
+    <script src="/static/plugins/photoswipe-5.4.4/umd/photoswipe-lightbox.umd.min.js"></script>
 
     <!-- main -->
     <link href="/static/common/css/main.css" rel="stylesheet">
@@ -41,14 +44,14 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <picture>
-                                <source media="(min-width: 576px)" srcset="/static/common/img/banner-index01.jpg">
-                                <img class="index_banner-img" src="/static/common/img/banner-index01_m.jpg" alt="2027 第三屆灣聲國際音樂大賽－指揮大賽" width="786" height="1268">
+                                <source media="(min-width: 576px)" srcset="/static/common/img/index/banner-index01.jpg">
+                                <img class="index_banner-img" src="/static/common/img/index/banner-index01_m.jpg" alt="2027 第三屆灣聲國際音樂大賽－指揮大賽" width="393" height="586" TODO-i18n-attr="src:index.banner.img01.mobile; alt:index.banner.img01.alt">
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture>
-                                <source media="(min-width: 576px)" srcset="/static/common/img/banner-index02.jpg">
-                                <img class="index_banner-img" src="/static/common/img/banner-index02_m.jpg" alt="輪播圖片安全區測試" width="1200" height="1920">
+                                <source media="(min-width: 576px)" srcset="/static/common/img/index/banner-index02.jpg">
+                                <img class="index_banner-img" src="/static/common/img/index/banner-index02_m.jpg" alt="輪播圖片安全區測試" width="800" height="1280">
                             </picture>
                         </div>
                     </div>
@@ -137,10 +140,12 @@
                 <div class="container-lg">
                     <h2 class="sectionTitle" TODO-i18n="index.award.title">大賽獎項</h2>
                     <div class="container_1030 index_award-body">
-                        <picture>
-                            <source media="(min-width: 768px)" srcset="/static/common/img/index/award.png" width="1030" height="599" TODO-i18n-attr="srcset:index.award.img">
-                            <img class="d-block img-fluid mx-auto" src="/static/common/img/index/award_m.png" alt="大賽獎項：首獎 30,000 美金及客席指揮邀演、貳獎 20,000 美金、參獎 10,000 美金、桂冠獎 3,000 美金、最佳人氣獎、樂團票選獎" width="363" height="501" TODO-i18n-attr="src:index.award.img.mobile; alt:index.award.alt">
-                        </picture>
+                        <a class="zoomLink js-photoSwipe" href="/static/common/img/index/award.png" data-pswp-width="1030" data-pswp-height="523" aria-label="放大檢視大賽獎項圖片" TODO-i18n-attr="href:index.award.img; aria-label:index.award.zoom">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="/static/common/img/index/award.png" width="1030" height="523" TODO-i18n-attr="srcset:index.award.img">
+                                <img class="d-block img-fluid mx-auto" src="/static/common/img/index/award_m.png" alt="大賽獎項：首獎 30,000 美金及客席指揮邀演、貳獎 20,000 美金、參獎 10,000 美金、桂冠獎 3,000 美金、最佳人氣獎、樂團票選獎" width="1030" height="523" TODO-i18n-attr="src:index.award.img.mobile; alt:index.award.alt">
+                            </picture>
+                        </a>
                     </div>
                 </div>
             </section>

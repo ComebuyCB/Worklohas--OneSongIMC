@@ -344,10 +344,10 @@ Structure instruction：
 
 
         /*=== readMore ===*/
-            /* 長文收合：JS 判斷內容超過 13 行才加 .is_clamped 並顯示按鈕，無 JS 時完整顯示 */
+            /* 長文收合（main.js ReadMore）：超過 13 行才加 .is_clamped 顯示按鈕，.is_open 為展開；無 JS 時完整顯示 */
             .readMore { display: flex; flex-direction: column; gap: 10px; }
             .readMore-btn { display: none; align-self: flex-end; padding: 0 10px; background: none; border: 0; }
-            .readMore.is_clamped > .readMore-content { max-height: calc(1.5em * 13); overflow: hidden; }
+            .readMore.is_clamped:not(.is_open) > .readMore-content { max-height: calc(1.5em * 13); overflow: hidden; }
             .readMore.is_clamped > .readMore-btn { display: block; }
 
 
@@ -427,7 +427,7 @@ Structure instruction：
             .pageBanner-head > .pageTitle { justify-content: center; padding: 10px; }
             .pageBanner-head > .maskIcon_decoChevron { display: none; color: white; }
             .pageBanner-img { --bleed: calc(50% - var(--wrap-w) / 2); margin-inline: var(--bleed); } /* 向外推到 #wrap 邊緣 */
-            .pageBanner-img > img { display: block; width: 100%; max-height: 600px; aspect-ratio: 57 / 85; object-fit: cover; }
+            .pageBanner-img > img { display: block; width: 100%; object-fit: cover; }
             @media (min-width: 576px) {
                 .pageBanner-img > img { max-height: none; aspect-ratio: 41 / 22; }
             }

@@ -29,6 +29,8 @@
 	"index.banner.label": "Key visual",
 	"index.banner.prev": "Previous slide",
 	"index.banner.next": "Next slide",
+	"index.banner.img01.mobile": "/static/common/img/index/banner-index01_m_en.jpg",
+	"index.banner.img01.alt": "2027 The 3rd OneSong International Music Competition – Conducting Competition",
 	"index.about.title": "About",
 	"index.about.lead": "The world’s only major international music competition<br>dedicated to Taiwanese musical culture and composers.",
 	"index.about.desc": "Guided by the vision of “making classical music Taiwanese, and making Taiwanese music classical,” the Competition invites a new generation of musicians from around the world to capture this island’s cultural pulse and transform it into contemporary classics for the global classical music stage.",
@@ -38,15 +40,12 @@
 	"index.award.title": "Prizes",
 	"index.award.img": "/static/common/img/index/award_en.png",
 	"index.award.img.mobile": "/static/common/img/index/award_m_en.png",
+	"index.award.zoom": "Enlarge prize image",
 	"index.award.alt": "Prizes: 1st Prize US$30,000 and Guest-Conducting Engagement, 2nd Prize US$20,000, 3rd Prize US$10,000, Laureate Prize US$3,000, Audience Favorite Prize, Orchestra’s Choice Prize",
 	"index.entry.title": "Application Information",
 	"index.entry.application": "Online<br>Application",
 	"index.entry.repertoire": "Competition<br>Repertoire",
 	"index.entry.jury": "Who’s<br>the JURY",
 	"index.entry.text": "Eligibility, Fees & Application Process<br>Please review the Competition Rules and Regulations carefully.",
-	"index.entry.rules": "Rules",
-
-	"rules.prizes.img": "/static/common/img/rules/prizes_en.png",
-	"rules.prizes.alt": "Prizes: 1st Prize US$30,000 with certificate and trophy, plus a guest-conducting engagement in a OneSong Orchestra season concert and in a major performance, 1 winner; 2nd Prize US$20,000 with certificate and trophy, 1 winner; 3rd Prize US$10,000 with certificate, 1 winner; Laureate Prize US$3,000 with certificate, 2 winners; Audience Favorite Prize, certificate, 1 winner; Orchestra’s Choice Prize, certificate, 1 winner",
-	"common.zoom": "Enlarge image"
+	"index.entry.rules": "Rules"
 }
