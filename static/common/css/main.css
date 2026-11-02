@@ -259,6 +259,7 @@ Structure instruction：
 
         /*=== form ===*/
             .form-label { margin-bottom: 4px; font-size: 15px; }
+            .label_required::before { content: "*"; margin-right: 2px; color: var(--bs-danger); } /* 必填標示：星號置於欄位名稱前 */
             .form-control,
             .form-select { border-color: var(--gray-a6); border-radius: 4px; font-size: 15px; }
             .form-control { padding: 7px 8px; }
@@ -396,7 +397,7 @@ Structure instruction：
 
 
         /*=== confirmModal ===*/
-            /* 確認視窗，由 main.js 的 _confirm() 呼叫 */
+            /* 確認視窗，由 main.js 的 _confirm() 呼叫；_alert() 的提示視窗共用此樣式 */
             .confirmModal { --bs-modal-width: 547px; --bs-modal-margin: 16px; --bs-modal-border-width: 0; --bs-modal-border-radius: 0; }
             .confirmModal-content { gap: 20px; padding: 15px; }
             .confirmModal-title { font-size: 17px; font-weight: 500; }
@@ -548,14 +549,14 @@ Structure instruction：
             .index_news-more { display: inline-block; margin-top: 30px; padding: 0 10px; font-weight: 350; }
 
             /* award */
-            .index_award { padding: 40px 0 100px; background-color: white; }
+            .index_award { padding: 40px 0; background-color: white; }
             .index_award-body { margin-top: 20px; }
 
             /* entry */
-            .index_entry { padding: 80px 0; background-color: var(--primary); color: white; }
-            .index_entry-list { display: grid; gap: 20px; }
-            .index_entry-info { display: flex; flex-direction: column; gap: 68px; margin-top: 80px; }
-            .index_entry-text { margin: 0; font-size: var(--fs-h3); font-weight: 500; }
+            .index_entry { padding: 80px 0 50px; background-color: var(--primary); color: white; }
+            .index_entry-list { display: grid; gap: 20px; width: 67%; margin-inline: auto; } /* 手機版：約 2/3 寬置中 */
+            .index_entry-info { display: flex; flex-direction: column; gap: 30px; margin-top: 50px; }
+            .index_entry-text { margin: 0; font-size: 20px; font-weight: 500; }
             .index_entry-action { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
 
             .index_entryCard { display: grid; grid-template: "title title" 1fr "icon arrow" auto / 1fr auto; align-items: end; min-height: 130px; padding: 15px 20px; background-color: var(--gray-f3); border-radius: 10px; color: black; transition: background-color .2s; }
@@ -581,8 +582,12 @@ Structure instruction：
                 .index_news-body { padding-inline: 0; }
                 .index_news { padding-bottom: 50px; }
 
-                .index_entry-list { grid-template-columns: repeat(3, 1fr); }
-                .index_entry-info { flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; }
+                .index_award { padding-bottom: 100px; }
+
+                .index_entry { padding-bottom: 80px; }
+                .index_entry-list { grid-template-columns: repeat(3, 1fr); width: auto; }
+                .index_entry-info { flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; margin-top: 80px; }
+                .index_entry-text { font-size: 24px; }
 
                 .index_entryCard { height: 200px; border-radius: 15px; }
                 .index_entryCard-title { font-size: 36px; }
@@ -621,7 +626,10 @@ Structure instruction：
 
 
         /*=== repertoire ===*/
-            .repertoire_body { display: flex; flex-direction: column; gap: 20px; }
+            .repertoire_body { display: flex; flex-direction: column; gap: 40px; }
+            .repertoire_notice > p:last-child { margin-bottom: 0; }
+            .repertoire_group { display: flex; flex-direction: column; gap: 20px; }
+            .repertoire_group-title { margin: 0; color: var(--primary); font-size: 19px; font-weight: 500; letter-spacing: .06em; }
             .repertoire_card { display: flex; flex-direction: column; gap: 10px; padding: 30px; background-color: white; }
             .repertoire_card-title { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: .06em; line-height: 1.65; }
             .repertoire_card-list { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; font-size: 17px; font-weight: 500; letter-spacing: .06em; line-height: 1.65; list-style: none; }
@@ -690,11 +698,12 @@ Structure instruction：
             .applicationForm_section { display: flex; flex-direction: column; gap: 20px; }
             .applicationForm_heading { margin: 0; padding: 6px 8px; border-radius: 4px; background-color: var(--primary); color: white; font-size: 20px; font-weight: 500; line-height: var(--bs-body-line-height); }
             .applicationForm_desc { margin: 0; font-size: 15px; }
-            .applicationForm_hint { margin: 0; color: var(--primary-dark); font-size: 14px; font-weight: 350; }
+            .applicationForm_hint { margin: 4px 0 0; color: var(--bs-danger); font-size: 14px; font-weight: 350; }
 
             /* 基本資料：電腦版欄寬 450px */
             .applicationForm_basic { --bs-gutter-x: 20px; --bs-gutter-y: 20px; }
             .applicationForm_basic > * { display: flex; flex-direction: column; justify-content: flex-end; }
+            .applicationForm_phone { display: grid; grid-template-columns: 140px 1fr; gap: 8px; }
             .applicationForm_verify { display: flex; align-items: center; gap: 20px; margin-top: 10px; }
             .applicationForm_verify-code { display: flex; flex-grow: 1; align-items: center; gap: 8px; }
             .applicationForm_verify-code > .form-label { flex-shrink: 0; margin: 0; }
@@ -721,7 +730,7 @@ Structure instruction：
             .applicationForm_file-head > input:focus-visible + .applicationForm_uploadBtn { outline: 2px solid var(--primary); outline-offset: 2px; }
 
             @media (min-width: 768px) {
-                .applicationForm_basic { max-width: calc(460px + var(--bs-gutter-x)); }
+                .applicationForm_basic { max-width: calc(512px + var(--bs-gutter-x)); }
                 .applicationForm_period { grid-template-columns: 1fr auto; align-items: center; max-width: 660px; }
                 .applicationForm_period-dates { grid-template-columns: repeat(2, 100px) auto repeat(2, 100px); } /* 100px 才放得下「Month」與下拉箭頭 */
                 /* 上傳鈕固定右欄並垂直置中；下載鈕落在左欄第二列 */

@@ -6,10 +6,49 @@ window.onresize = function(){
 function set100vh(){
 	document.documentElement.style.setProperty('--100vh', window.innerHeight + 'px' )
 }
+
+
+/**
+ * 提示視窗（_layout/modal.html 的 #alertModal），與 _confirm() 相同但無取消鈕
+ * @param {Object} options
+ * @param {string} options.title 標題（純文字）
+ * @param {string} options.content 內容，可傳 HTML
+ * @param {string} options.btnOkText 確認鈕文字
+ * @param {Function} options.okFunction 按下確認後執行；回傳 false 則不關閉視窗
+ */
+function _alert(options){
+	const def = {
+		title: '',
+		content: '',
+		btnOkText: 'Confirm 確認',
+		okFunction: null,
+	}
+	const opt = { ...def, ...options }
+	const $modal = $('#alertModal')
+	if (!$modal.length) return // modal.html 尚未載入
+
+	const $btnOk = $modal.find('.js-alert-ok')
+	const modal = bootstrap.Modal.getOrCreateInstance($modal[0])
+
+	$modal.attr('aria-label', opt.title) // 標題同時作為視窗的無障礙名稱
+	$modal.find('.js-alert-title').text(opt.title)
+	$modal.find('.js-alert-content').html(opt.content)
+	$btnOk.text(opt.btnOkText)
+
+	// 每次呼叫重新綁定，避免沿用上一次的 callback
+	$btnOk.off('click.alert').on('click.alert', function(){
+		if (opt.okFunction?.() === false) return
+		modal.hide()
+	})
+
+	modal.show()
+}
+
+
 /**
  * 確認視窗（_layout/modal.html 的 #confirmModal）
  * @param {Object} options
- * @param {string} options.title 標題
+ * @param {string} options.title 標題（純文字）
  * @param {string} options.content 內容，可傳 HTML
  * @param {string} options.btnOkText 確認鈕文字
  * @param {string} options.btnCancelText 取消鈕文字
@@ -33,7 +72,8 @@ function _confirm(options){
 	const $btnCancel = $modal.find('.js-confirm-cancel')
 	const modal = bootstrap.Modal.getOrCreateInstance($modal[0])
 
-	$('#confirmModalTitle').html(opt.title)
+	$modal.attr('aria-label', opt.title) // 標題同時作為視窗的無障礙名稱
+	$modal.find('.js-confirm-title').text(opt.title)
 	$modal.find('.js-confirm-content').html(opt.content)
 	$btnOk.text(opt.btnOkText)
 	$btnCancel.text(opt.btnCancelText)

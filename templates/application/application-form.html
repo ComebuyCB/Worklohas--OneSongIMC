@@ -49,20 +49,20 @@
                     <section class="applicationForm_section">
                         <h2 class="applicationForm_heading">Basic Information 基本資料</h2>
                         <div class="row applicationForm_basic">
+                            <div class="col-sm-6">
+                                <label class="form-label label_required" for="lastName">Last Name / Surname 姓氏</label>
+                                <input class="form-control" id="lastName" name="lastName" type="text">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label label_required" for="firstName">First Name / Given Name 名字</label>
+                                <input class="form-control" id="firstName" name="firstName" type="text">
+                            </div>
                             <div>
                                 <label class="form-label" for="nameZh">Full Chinese Name 中文姓名 (無者免填 / Optional)</label>
                                 <input class="form-control" id="nameZh" name="nameZh" type="text">
                             </div>
-                            <div class="col-sm-6">
-                                <label class="form-label" for="lastName">Last Name / Surname 姓氏</label>
-                                <input class="form-control" id="lastName" name="lastName" type="text">
-                            </div>
-                            <div class="col-sm-6">
-                                <label class="form-label" for="firstName">First Name / Given Name 名字</label>
-                                <input class="form-control" id="firstName" name="firstName" type="text">
-                            </div>
                             <div>
-                                <label class="form-label" for="title">Title (Mr. / Ms. / Mx. / Dr.) 稱謂 (先生/小姐)</label>
+                                <label class="form-label label_required" for="title">Title (Mr. / Ms. / Mx. / Dr.) 稱謂 (先生/小姐)</label>
                                 <select class="form-select" id="title" name="title">
                                     <option value="">Please select 請選擇</option>
                                     <option value="Mr.">Mr. 先生</option>
@@ -72,32 +72,39 @@
                                 </select>
                             </div>
                             <div class="col-sm-7">
-                                <label class="form-label" for="birthday">Date of Birth 出生日期 (YYYY/MM/DD)</label>
-                                <input class="form-control" id="birthday" name="birthday" type="text" inputmode="numeric">
+                                <label class="form-label label_required" for="birthday">Date of Birth 出生日期</label>
+                                <input class="form-control" id="birthday" name="birthday" type="date">
                             </div>
                             <div class="col-sm-5">
-                                <label class="form-label" for="nationality">Nationality 國籍</label>
-                                <input class="form-control" id="nationality" name="nationality" type="text">
+                                <label class="form-label label_required" for="nationality">Nationality 國籍</label>
+                                <select class="form-select" id="nationality" name="nationality"> <!-- TODO 後端：國家選項 -->
+                                    <option value="">Please select 請選擇</option>
+                                </select>
                             </div>
                             <div>
-                                <label class="form-label" for="phone">Phone Number 聯絡電話 (國碼＋號碼)</label>
-                                <input class="form-control" id="phone" name="phone" type="tel">
+                                <label class="form-label label_required" for="phone">Phone Number 聯絡電話</label>
+                                <div class="applicationForm_phone">
+                                    <select class="form-select" name="phoneCode" aria-label="Country Code 國碼"> <!-- TODO 後端：國碼選項 -->
+                                        <option value="">Code 國碼</option>
+                                    </select>
+                                    <input class="form-control js-input-digits" id="phone" name="phone" type="tel" inputmode="numeric" maxlength="15" autocomplete="tel-national">
+                                </div>
                             </div>
                             <div>
-                                <label class="form-label" for="email">Email Address 電子郵件</label>
+                                <label class="form-label label_required" for="email">Email Address 電子郵件</label>
                                 <input class="form-control" id="email" name="email" type="email">
                                 <div class="applicationForm_verify">
-                                    <button class="btn applicationForm_btn" type="button">發送驗證碼</button>
+                                    <button class="btn applicationForm_btn" type="button">Send Code 發送驗證碼</button>
                                     <div class="applicationForm_verify-code">
-                                        <label class="form-label" for="emailCode">驗證碼</label>
+                                        <label class="form-label" for="emailCode">Code 驗證碼</label>
                                         <input class="form-control" id="emailCode" name="emailCode" type="text" inputmode="numeric">
                                     </div>
                                 </div>
                                 <!-- 驗證成功後顯示 -->
-                                <p class="applicationForm_verified mb-0">email 驗證成功<i class="fa-solid fa-check" aria-hidden="true"></i></p>
+                                <p class="applicationForm_verified mb-0">Email Verified Email 驗證成功<i class="fa-solid fa-check" aria-hidden="true"></i></p>
                             </div>
                             <div>
-                                <label class="form-label" for="address">Mailing Address 通訊地址</label>
+                                <label class="form-label label_required" for="address">Mailing Address 通訊地址</label>
                                 <input class="form-control" id="address" name="address" type="text">
                             </div>
                         </div>
@@ -120,7 +127,7 @@
                             </div>
                         </div>
                         <div>
-                            <label class="form-label" for="mentor">Conducting Mentor 師承 (YYYY/MM - YYYY/MM)</label>
+                            <label class="form-label" for="mentor">Conducting Mentor 指揮師承 (YYYY/MM - YYYY/MM)</label>
                             <div class="applicationForm_period">
                                 <input class="form-control" id="mentor" name="mentor" type="text">
                                 <div class="applicationForm_period-dates">
@@ -133,7 +140,7 @@
                             </div>
                         </div>
                         <div>
-                            <label class="form-label" for="experience">Conducting Experience 個人指揮經歷 (YYYY/MM - YYYY/MM)（非必填）</label>
+                            <label class="form-label" for="experience">Conducting Experience 指揮經歷 (YYYY/MM - YYYY/MM)</label>
                             <div class="applicationForm_period">
                                 <input class="form-control" id="experience" name="experience" type="text">
                                 <div class="applicationForm_period-dates">
@@ -146,27 +153,25 @@
                             </div>
                         </div>
                         <div>
-                            <label class="form-label" for="awards">Conducting Honors/Awards 個人指揮得獎經歷 (YYYY/MM)（非必填）</label>
+                            <label class="form-label" for="awards">Conducting Honors/Awards 個人指揮得獎經歷 (YYYY/MM)</label>
                             <div class="applicationForm_period">
                                 <input class="form-control" id="awards" name="awards" type="text">
                                 <div class="applicationForm_period-dates">
-                                    <select class="form-select js-select-year" name="awardsStartYear" aria-label="得獎經歷起始年份"></select>
-                                    <select class="form-select js-select-month" name="awardsStartMonth" aria-label="得獎經歷起始月份"></select>
-                                    <span aria-hidden="true">~</span>
-                                    <select class="form-select js-select-year" name="awardsEndYear" aria-label="得獎經歷結束年份"></select>
-                                    <select class="form-select js-select-month" name="awardsEndMonth" aria-label="得獎經歷結束月份"></select>
+                                    <select class="form-select js-select-year" name="awardsYear" aria-label="得獎年份"></select>
+                                    <select class="form-select js-select-month" name="awardsMonth" aria-label="得獎月份"></select>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <label class="form-label" for="bioEn">Biography (English) 個人簡介（英文）</label>
-                            <textarea class="form-control" id="bioEn" name="bioEn" rows="10"></textarea>
+                            <label class="form-label label_required" for="bioEn">English Biography 英文個人簡介</label>
+                            <textarea class="form-control" id="bioEn" name="bioEn" rows="10" aria-describedby="bioEnHint"></textarea>
+                            <p class="applicationForm_hint" id="bioEnHint">(Maximum 300 words，上限300字)</p>
                         </div>
                         <div>
-                            <label class="form-label" for="bioZh">Biography (Chinese) 個人簡介（中文）</label>
-                            <textarea class="form-control" id="bioZh" name="bioZh" rows="10"></textarea>
+                            <label class="form-label" for="bioZh">Chinese Biography 中文個人簡介</label>
+                            <textarea class="form-control" id="bioZh" name="bioZh" rows="10" aria-describedby="bioZhHint"></textarea>
+                            <p class="applicationForm_hint" id="bioZhHint">(Maximum 500 words，上限500字)</p>
                         </div>
-                        <p class="applicationForm_hint">Maximum 500 words. Fill in either language or both. 上限 500 字，可擇一或同時填寫</p>
                     </section>
 
                     <!-- 初審資料上傳 -->
@@ -174,14 +179,14 @@
                         <h2 class="applicationForm_heading">Preliminary Screening Materials Upload 初審資料上傳</h2>
                         <p class="applicationForm_desc">Preliminary Screening Video Link (Max 30 mins, Rehearsal &amp; Performance required)<br>初審指揮影片網址連結（兩者總長30分鐘內，須含排練與演出）</p>
                         <div>
-                            <label class="form-label" for="videoLink1">Video Link 1 (Orchestral Rehearsal Video) 影片網址連結一（樂團排練影片）</label>
+                            <label class="form-label label_required" for="videoLink1">Video Link 1 (Orchestral Rehearsal Video) 影片網址連結一（樂團排練影片）</label>
                             <div class="input-group">
                                 <span class="input-group-text">https://</span>
                                 <input class="form-control" id="videoLink1" name="videoLink1" type="text" inputmode="url">
                             </div>
                         </div>
                         <div>
-                            <label class="form-label" for="videoLink2">Video Link 2 (Live Performance Video) 影片網址連結二（現場演出影片）</label>
+                            <label class="form-label label_required" for="videoLink2">Video Link 2 (Live Performance Video) 影片網址連結二（現場演出影片）</label>
                             <div class="input-group">
                                 <span class="input-group-text">https://</span>
                                 <input class="form-control" id="videoLink2" name="videoLink2" type="text" inputmode="url">
@@ -199,7 +204,7 @@
                         <ul class="applicationForm_files list-unstyled">
                             <li class="applicationForm_file">
                                 <div class="applicationForm_file-head">
-                                    <p class="applicationForm_file-name">Full Score of Preliminary Conducting Video<br>初審指揮影片之樂曲總譜</p>
+                                    <p class="applicationForm_file-name label_required">Full Score of Preliminary Conducting Video<br>初審指揮影片之樂曲總譜</p>
                                     <input class="visually-hidden" id="fileScore" name="fileScore" type="file" accept=".pdf">
                                     <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileScore">Upload 選擇檔案</label>
                                 </div>
@@ -217,7 +222,7 @@
                         <ul class="applicationForm_files list-unstyled">
                             <li class="applicationForm_file">
                                 <div class="applicationForm_file-head">
-                                    <p class="applicationForm_file-name">Portrait / Photograph 個人形象照</p>
+                                    <p class="applicationForm_file-name label_required">Portrait / Photograph 個人形象照</p>
                                     <input class="visually-hidden" id="filePortrait" name="filePortrait" type="file" accept=".jpg,.jpeg,.png">
                                     <label class="btn applicationForm_btn applicationForm_uploadBtn" for="filePortrait">Upload 選擇檔案</label>
                                 </div>
@@ -227,7 +232,7 @@
                             </li>
                             <li class="applicationForm_file">
                                 <div class="applicationForm_file-head">
-                                    <p class="applicationForm_file-name">Republic of China National Identity Card / Non-ROC Passport Copy<br>中華民國身分證正反面 / 護照影本</p>
+                                    <p class="applicationForm_file-name label_required">Republic of China National Identity Card / Non-ROC Passport Copy<br>中華民國身分證正反面 / 護照影本</p>
                                     <input class="visually-hidden" id="fileId" name="fileId" type="file" accept=".pdf">
                                     <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileId">Upload 選擇檔案</label>
                                 </div>
@@ -247,7 +252,7 @@
                             </li>
                             <li class="applicationForm_file">
                                 <div class="applicationForm_file-head">
-                                    <p class="applicationForm_file-name">Conflict of Interest Declaration Form 利益關係聲明表</p>
+                                    <p class="applicationForm_file-name label_required">Conflict of Interest Declaration Form 利益關係聲明表</p>
                                     <input class="visually-hidden" id="fileConflict" name="fileConflict" type="file" accept=".pdf">
                                     <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileConflict">Upload 選擇檔案</label>
                                 </div>
@@ -257,7 +262,7 @@
                             </li>
                             <li class="applicationForm_file">
                                 <div class="applicationForm_file-head">
-                                    <p class="applicationForm_file-name">Personal Data Collection, Processing and Use Consent Form<br>個人資料蒐集處理及利用同意書</p>
+                                    <p class="applicationForm_file-name label_required">Personal Data Collection, Processing and Use Consent Form<br>個人資料蒐集處理及利用同意書</p>
                                     <input class="visually-hidden" id="filePrivacy" name="filePrivacy" type="file" accept=".pdf">
                                     <label class="btn applicationForm_btn applicationForm_uploadBtn" for="filePrivacy">Upload 選擇檔案</label>
                                 </div>
@@ -267,7 +272,7 @@
                             </li>
                             <li class="applicationForm_file">
                                 <div class="applicationForm_file-head">
-                                    <p class="applicationForm_file-name">Entrant Audiovisual and Likeness Release Form<br>參賽者影音及肖像授權同意書</p>
+                                    <p class="applicationForm_file-name label_required">Entrant Audiovisual and Likeness Release Form<br>參賽者影音及肖像授權同意書</p>
                                     <input class="visually-hidden" id="fileRelease" name="fileRelease" type="file" accept=".pdf">
                                     <label class="btn applicationForm_btn applicationForm_uploadBtn" for="fileRelease">Upload 選擇檔案</label>
                                 </div>
@@ -319,7 +324,12 @@
             $('.js-select-month').html(monthOptions)
             $('.js-select-year').html(yearOptions)
 
-            // 下一步，繳交報名費：先跳出確認視窗
+            // 電話號碼：只保留數字
+            $('.js-input-digits').on('input', function(){
+                this.value = this.value.replace(/\D/g, '')
+            })
+
+            // 送出：先跳出確認視窗
             $('#registerForm').on('submit', function(e){
                 e.preventDefault()
 
